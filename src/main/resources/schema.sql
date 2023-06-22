@@ -61,7 +61,7 @@ name TEXT,
 gender TEXT,
 age INTEGER,
 tel TEXT,
-email, TEXT,
+email TEXT,
 password TEXT
 );
 
