@@ -1,8 +1,6 @@
 --テーブル削除
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS foods;
-DROP TABLE IF EXISTS vegetables;
-DROP TABLE IF EXISTS cafeteria;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS records;
 DROP TABLE IF EXISTS intake;
@@ -14,39 +12,13 @@ id SERIAL PRIMARY KEY,
 name TEXT
 );
 
---料理テーブル
+--料理/野菜/社食テーブル
 CREATE TABLE foods
 (
 id SERIAL PRIMARY KEY,
 category_id INTEGER,
 name TEXT,
-carbohy INTEGER,
-protein INTEGER,
-lipid INTEGER,
-vitamin INTEGER,
-mineral INTEGER
-);
-
---野菜テーブル
-CREATE TABLE vegetables
-(
-id SERIAL PRIMARY KEY,
-category_id INTEGER,
-name TEXT,
-carbohy INTEGER,
-protein INTEGER,
-lipid INTEGER,
-vitamin INTEGER,
-mineral INTEGER
-);
-
---社食テーブル
-CREATE TABLE cafeteria
-(
-id SERIAL PRIMARY KEY,
-category_id INTEGER,
-name TEXT,
-carbohy INTEGER,
+carbohydrates INTEGER,
 protein INTEGER,
 lipid INTEGER,
 vitamin INTEGER,
@@ -69,15 +41,17 @@ password TEXT
 CREATE TABLE records
 (
 id SERIAL PRIMARY KEY,
+user_id Integer,
 name TEXT
 );
 
---摂取量テーブル
+--必要摂取量テーブル
 CREATE TABLE intake
 (
 id SERIAL PRIMARY KEY,
 range TEXT,
-carbohy INTEGER,
+gender TEXT,
+carbohydrates INTEGER,
 protein INTEGER,
 lipid INTEGER,
 vitamin INTEGER,
