@@ -26,4 +26,18 @@ public class Food {
 	private Integer vitamin;
 	private Integer mineral;
 	
+	//コンストラクタ
+		public Food() {
+			
+		}
+	//コンストラクタ（登録用）
+		public Food(Integer categoryId, String name, Integer carbohydrates,Integer protein,Integer lipid, Integer vitamin,Integer mineral) {
+			this.categoryId = categoryId;
+			this.name = name;			
+			this.carbohydrates = carbohydrates;
+			this.protein = protein;
+			this.lipid = lipid;
+			this.vitamin = vitamin;
+			this.mineral = mineral;
+			}
 }
