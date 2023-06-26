@@ -41,6 +41,7 @@ public class MenuController {
 	@Autowired
 	Account account;
 	
+	//メイン画面表示
 	@GetMapping("/main")
 	public String index(Model model) {
 		
@@ -67,7 +68,8 @@ public class MenuController {
 			
 			return "/menu";
 		}
-
+		
+		//メニュー登録
 		@PostMapping("/menu/add/{categoryId}")
 		public String store(
 				@PathVariable(value = "categoryId")Integer categoryId,

@@ -84,6 +84,8 @@ public class MainController {
 			User u = user.get();
 			account.setName(u.getName());
 			
+			
+			
 			List<Category> categoriesList = categoryRepository.findAll();
 			model.addAttribute("categories", categoriesList);
 			
