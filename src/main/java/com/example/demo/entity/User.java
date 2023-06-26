@@ -18,13 +18,13 @@ public class User {
 	
 	private String name;
 	
-	private String gender;
-	
-	private Integer age;
-	
 	private String tel;
 	
 	private String email;
+	
+	private String gender;
+	
+	private Integer age;
 	
 	private String password;
 	
@@ -32,4 +32,13 @@ public class User {
 	public User() {
 		
 	}
+	//コンストラクタ（登録用）
+		public User(String name, String tel, String email, String gender, Integer age, String password) {
+			this.name = name;
+			this.tel = tel;
+			this.email = email;
+			this.gender = gender;
+			this.age = age;
+			this.password = password;
+		}
 }

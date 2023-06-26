@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>会員登録</title>
+</head>
+<body>
+	<header>
+	<h1>健康管理アプリ</h1>
+	</header>
+	
+	<main>
+		<h3>お客様情報</h3>
+		<form action="/account" method="post">
+		
+		<table border="1">
+				<tr>
+					<th>お名前</th>
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<th>電話番号</th>
+					<td><input type="text" name="tel"></td>
+				</tr>
+				
+				<tr><th>e-mail</th>
+					<td><input type="text" name="email"></td>
+				</tr>
+				
+				<tr>
+					<th>性別</th>
+					<td>
+						<input type="radio" name="gender" value="男性">男性
+						<input type="radio" name="gender" value="女性">女性
+					</td>
+				</tr>
+				
+				<tr>
+					<th>年齢</th>
+					<td><input type="text" name="age"></td>
+				</tr>
+				
+				<tr><th>パスワード</th>
+					<td><input type="text" name="password"></td>
+				</tr>
+			</table>
+			<button>登録</button>
+		</form>
+	</main>
+	
+</body>
+</html>
