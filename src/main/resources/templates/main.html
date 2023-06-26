@@ -9,10 +9,13 @@
 	   th:href="|/menu/add?categoryId=${category.id}|" 
 	   style="margin-right: 5px;">[[${category.name}]]<br></a>
 	   
+	<a th:each="category:${categories}"
+	   th:href="|/choice?categoryId=${category.id}|"
+	   style="margin-right: 5px;">[[${category.name}]]<br></a>
+	
 	<table border="1">
 		<tr>
 			<th>食品名・材料</th>
-			<th>名前</th>
 			<th>炭水化物</th>
 			<th>タンパク質</th>
 			<th>脂質</th>

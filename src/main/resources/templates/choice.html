@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>食べたもの登録</title>
+</head>
+<body>	
+	<main>
+		<table border="1">
+		<tr>
+			<th>食品名・材料</th>
+		</tr>
+		<tr th:each="food:${foods}">
+			<td>[[${food.name}]]</td>
+		</tr>
+	</table>
+	</main>
+</body>
+</html>
