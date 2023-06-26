@@ -2,6 +2,7 @@
 INSERT INTO categories(name) VALUES('料理');
 INSERT INTO categories(name) VALUES('野菜各種');
 INSERT INTO categories(name) VALUES('社食');
+INSERT INTO categories(name) VALUES('Myメニュー');
 
 --必要な摂取量
 --vitamin(μg), mineral(mg)で計算、Na = 5000mgと仮定
@@ -13,3 +14,5 @@ INSERT INTO intake(range, gender, carbohydrates, protein, lipid, vitamin, minera
 INSERT INTO intake(range, gender, carbohydrates, protein, lipid, vitamin, mineral) VALUES('30～49','女性',50,50,20,6359,8740);
 INSERT INTO intake(range, gender, carbohydrates, protein, lipid, vitamin, mineral) VALUES('50～64','女性',50,50,20,6859,8740);
 INSERT INTO intake(range, gender, carbohydrates, protein, lipid, vitamin, mineral) VALUES('65～74','女性',50,50,20,7359,8730);
+
+INSERT INTO foods(category_id, name, carbohydrates, protein, lipid, vitamin, mineral) VALUES(1,'食パン',46.6,9.0,4.2,502.0,669.1);

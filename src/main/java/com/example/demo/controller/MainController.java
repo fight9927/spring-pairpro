@@ -113,11 +113,11 @@ public class MainController {
 				intake = intakeRepository.findById(8).get();
 			}
 			
-			intakeGoal.setCarbohydrates(intake.getCarbohydrates());
-			intakeGoal.setProtein(intake.getProtein());
-			intakeGoal.setLipid(intake.getLipid());
-			intakeGoal.setVitamin(intake.getVitamin());
-			intakeGoal.setMineral(intake.getMineral());
+//			intakeGoal.setCarbohydrates(intake.getCarbohydrates());
+//			intakeGoal.setProtein(intake.getProtein());
+//			intakeGoal.setLipid(intake.getLipid());
+//			intakeGoal.setVitamin(intake.getVitamin());
+//			intakeGoal.setMineral(intake.getMineral());
 			
 			List<Category> categoriesList = categoryRepository.findAll();
 			model.addAttribute("categories", categoriesList);

@@ -5,10 +5,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a th:each="category:${categories}"
-	   th:href="|/menu/add?categoryId=${category.id}|" 
-	   style="margin-right: 5px;">[[${category.name}]]<br></a>
-	   
+	<a href="/menu/add" >Myメニュー追加はこちら</a>
+	<br>
 	<a th:each="category:${categories}"
 	   th:href="|/choice?categoryId=${category.id}|"
 	   style="margin-right: 5px;">[[${category.name}]]<br></a>

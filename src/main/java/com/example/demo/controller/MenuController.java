@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -61,18 +60,14 @@ public class MenuController {
 	 
 	    //メニュー追加画面表示
 		@GetMapping("/menu/add")
-		public String index(
-				@RequestParam(name = "categoryId") Integer categoryId,
-		Model model) {
-			model.addAttribute("categoryId", categoryId);
+		public String index() {
 			
 			return "/menu";
 		}
 		
 		//メニュー登録
-		@PostMapping("/menu/add/{categoryId}")
+		@PostMapping("/menu/add")
 		public String store(
-				@PathVariable(value = "categoryId")Integer categoryId,
 				@RequestParam(value = "name", defaultValue = "") String name,
 				@RequestParam(value = "carbohydrates", defaultValue = "") Integer carbohydrates,
 				@RequestParam(value = "protein", defaultValue = "") Integer protein,
@@ -81,7 +76,7 @@ public class MenuController {
 				@RequestParam(value = "mineral", defaultValue = "") Integer mineral,
 				Model model) {
 
-			Food food = new Food(categoryId, name, carbohydrates, protein, lipid, vitamin, mineral);
+			Food food = new Food(4, name, carbohydrates, protein, lipid, vitamin, mineral);
 			
 			 foodRepository.save(food);
 
