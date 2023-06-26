@@ -8,13 +8,22 @@
 	<header>
 	<h1>健康管理アプリ</h1>
 	</header>
+	<th:block>
+		<span style="color: red;">
+			[[${message}]]
+			<br>
+		</span>
+	</th:block>
 	
 	<form action="/login" method="post">
-		<input type="text" name="name" placeholder="名前">
-		<input type="text" name="name" placeholder="ユーザID">
-		<input type="text" name="password" placeholder="パスワード">
+		<input type="text" name="email" placeholder="メールアドレス" th:value="${email}">
+		<br>
+		<input type="text" name="password" placeholder="パスワード" th:value="${password}">
+		<br>
 		<button>ログイン</button>
-		
+	</form>
+	<form action="/account" method="get">
+		<input type="submit" value="会員登録はこちら">
 	</form>
 </body>
 </html>

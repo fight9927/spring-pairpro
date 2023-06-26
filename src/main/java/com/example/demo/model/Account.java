@@ -1,5 +1,18 @@
 package com.example.demo.model;
 
-public class Account {
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
+import lombok.Data;
+
+@Component
+@Data
+@SessionScope
+public class Account {
+	
+	private String name;
+
+	public Account(String name) {
+		this.name = name;
+	}
 }

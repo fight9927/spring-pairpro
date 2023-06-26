@@ -10,8 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.entity.User;
 import com.example.demo.repository.UserRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class AccountController {
+	
+	@Autowired
+	HttpSession session;
+	
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -21,15 +27,17 @@ public class AccountController {
 	//ログイン画面表示
 	@GetMapping("/")
 	public String index() {
+		session.invalidate();
+		
 		return "/login";
 	}
 	
 	//会員登録
-	@GetMapping("/account/add")
+	@GetMapping("/account")
 	public String create() {
 		return "/accountform";
 	}
-	@PostMapping("/account/add")
+	@PostMapping("/account")
 	public String store(
 			@RequestParam(value = "name", defaultValue = "") String name,
 			@RequestParam(value = "tel", defaultValue = "") String tel,
