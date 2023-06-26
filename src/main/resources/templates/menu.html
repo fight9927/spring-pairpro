@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>メニュー追加登録</title>
+</head>
+<body>
+	<header th:replace="header"></header>
+	
+	<main>
+		<form action="|/menu/${categoryId}|" method="post">
+		<table border="1">
+				<tr>
+					<th>料理名</th>
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<th>炭水化物</th>
+					<td><input type="text" name="carbohydrates"></td>
+				</tr>
+				
+				<tr>
+					<th>タンパク質</th>
+					<td><input type="text" name="protein"></td>
+				</tr>
+				
+				<tr>
+					<th>脂質</th>
+					<td><input type="text" name="lipid"></td>
+				</tr>
+				
+				<tr>
+					<th>ビタミン</th>
+					<td><input type="text" name="vitamin"></td>
+				</tr>
+				
+				<tr>
+					<th>ミネラル</th>
+					<td><input type="text" name="mineral"></td>
+				</tr>
+			</table>
+			<button>メニュー追加登録</button>
+		
+		<table border="1">
+				<tr>
+					<th>野菜名</th>
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<th>炭水化物</th>
+					<td><input type="text" name="carbohydrates"></td>
+				</tr>
+				
+				<tr>
+					<th>タンパク質</th>
+					<td><input type="text" name="protein"></td>
+				</tr>
+				
+				<tr>
+					<th>脂質</th>
+					<td><input type="text" name="lipid"></td>
+				</tr>
+				
+				<tr>
+					<th>ビタミン</th>
+					<td><input type="text" name="vitamin"></td>
+				</tr>
+				
+				<tr>
+					<th>ミネラル</th>
+					<td><input type="text" name="mineral"></td>
+				</tr>
+			</table>
+			<button>野菜追加登録</button>
+		</form>
+	</main>
+</body>
+</html>
