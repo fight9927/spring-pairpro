@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Category;
+import com.example.demo.entity.History;
 import com.example.demo.entity.User;
 import com.example.demo.model.Account;
 import com.example.demo.repository.CategoryRepository;
@@ -25,7 +26,7 @@ public class MainController {
 	HttpSession session;
 	
 	@Autowired
-	private UserRepository userRepository;
+	UserRepository userRepository;
 	
 	@Autowired
 	CategoryRepository categoryRepository;
@@ -73,18 +74,18 @@ public class MainController {
 			User u = user.get();
 			account.setName(u.getName());
 			
-			List<Category> categories = categoryRepository.findAll();
-			model.addAttribute("categories", categories);
-//			
-//			List<History> histories = historyRepository.findAll();
-//			model.addAttribute("histories", histories);
+			List<Category> categoriesList = categoryRepository.findAll();
+			model.addAttribute("categories", categoriesList);
+			
+			List<History> historiesList = historyRepository.findAll();
+			model.addAttribute("histories", historiesList);
 			
 			return "main";
 		}
 		
-		model.addAttribute("message", "登録情報と異なります");
+       	model.addAttribute("message", "登録情報と異なります");
 		
-		return "/login";
+		return "login";
 	}
 	
 	
