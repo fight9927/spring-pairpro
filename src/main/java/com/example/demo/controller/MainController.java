@@ -41,12 +41,6 @@ public class MainController {
 	@Autowired 
 	IntakeRepository intakeRepository;
 	
-//	@Autowired
-//	User user;
-//	
-//	@Autowired
-//	Category category;
-	
 	@Autowired
 	Account account;
 	
