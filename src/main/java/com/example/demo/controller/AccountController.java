@@ -24,14 +24,6 @@ public class AccountController {
 	@Autowired
 	User user;
 	
-	//ログイン画面表示
-	@GetMapping("/")
-	public String index() {
-		session.invalidate();
-		
-		return "/login";
-	}
-	
 	//会員登録
 	@GetMapping("/account")
 	public String create() {

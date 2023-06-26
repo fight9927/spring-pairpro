@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -43,6 +44,15 @@ public class MainController {
 	@Autowired
 	Account account;
 	
+	//ログイン画面表示
+		@GetMapping("/")
+		public String index() {
+			session.invalidate();
+			
+			return "/login";
+		}
+		
+	//ログイン管理
 	@PostMapping("/login")
 	public String login(
 	@RequestParam(value = "email", defaultValue = "") String email,

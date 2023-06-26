@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,30 +10,67 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.entity.Category;
 import com.example.demo.entity.Food;
+import com.example.demo.entity.History;
+import com.example.demo.model.Account;
+import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.FoodRepository;
+import com.example.demo.repository.HistoryRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MenuController {
-	@Autowired
-	private FoodRepository foodRepository;
 	
 	@Autowired
-	Food foood;
+	HttpSession session;
 	
-	//メニュー追加画面表示
-		@GetMapping("/menu")
-		public String index() {
+	@Autowired
+	FoodRepository foodRepository;
+	
+	@Autowired
+	CategoryRepository categoryRepository;
+	
+	@Autowired
+	HistoryRepository historyRepository;
+	
+	@Autowired
+	Food food;
+	
+	@Autowired
+	Account account;
+	
+	@GetMapping("/main")
+	public String index(Model model) {
+		
+		if (account.getName() == null) {
+			
+			return "login";
+		}
+		
+		List<Category> categoriesList = categoryRepository.findAll();
+		model.addAttribute("categories", categoriesList);
+		
+		List<History> historiesList = historyRepository.findAll();
+		model.addAttribute("histories", historiesList);
+		
+		return "main";
+	}
+	 
+	    //メニュー追加画面表示
+		@GetMapping("/menu/add")
+		public String index(
+				@RequestParam(name = "categoryId") Integer categoryId,
+		Model model) {
+			model.addAttribute("categoryId", categoryId);
+			
 			return "/menu";
 		}
-		//メニュー登録
-		@GetMapping("|/menu/${categoryId}|")
-		public String create() {
-			return "/menu";
-		}
-		@PostMapping("|/menu/${categoryId}|")
+
+		@PostMapping("/menu/add/{categoryId}")
 		public String store(
-				@PathVariable(value = "categoryID")Integer categoryId,
+				@PathVariable(value = "categoryId")Integer categoryId,
 				@RequestParam(value = "name", defaultValue = "") String name,
 				@RequestParam(value = "carbohydrates", defaultValue = "") Integer carbohydrates,
 				@RequestParam(value = "protein", defaultValue = "") Integer protein,

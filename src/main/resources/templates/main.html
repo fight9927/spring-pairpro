@@ -6,7 +6,7 @@
 </head>
 <body>
 	<a th:each="category:${categories}"
-	   th:href="|/items?categoryId=${category.id}|" 
+	   th:href="|/menu/add?categoryId=${category.id}|" 
 	   style="margin-right: 5px;">[[${category.name}]]<br></a>
 	   
 	<table border="1">

@@ -4,11 +4,9 @@
 <meta charset="UTF-8">
 <title>メニュー追加登録</title>
 </head>
-<body>
-	<header th:replace="header"></header>
-	
+<body>	
 	<main>
-		<form action="|/menu/${categoryId}|" method="post">
+		<form th:action="|/menu/add/${categoryId}|" method="post">
 		<table border="1">
 				<tr>
 					<th>料理名</th>
@@ -40,7 +38,9 @@
 				</tr>
 			</table>
 			<button>メニュー追加登録</button>
+		</form>
 		
+		<form th:action="|/menu/add/${categoryId}|" method="post">
 		<table border="1">
 				<tr>
 					<th>野菜名</th>
