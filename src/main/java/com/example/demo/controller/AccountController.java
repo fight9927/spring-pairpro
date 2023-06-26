@@ -15,6 +15,9 @@ public class AccountController {
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	User user;
+	
 	//ログイン画面表示
 	@GetMapping("/")
 	public String index() {
@@ -26,7 +29,7 @@ public class AccountController {
 	public String create() {
 		return "/accountform";
 	}
-	@PostMapping("/users/add")
+	@PostMapping("/account/add")
 	public String store(
 			@RequestParam(value = "name", defaultValue = "") String name,
 			@RequestParam(value = "name", defaultValue = "") String tel,
