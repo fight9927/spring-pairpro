@@ -35,8 +35,8 @@ public class MenuController {
 	@Autowired
 	HistoryRepository historyRepository;
 	
-	@Autowired
-	Food food;
+//	@Autowired
+//	Food food;
 	
 	@Autowired
 	Account account;

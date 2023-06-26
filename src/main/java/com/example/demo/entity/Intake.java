@@ -15,16 +15,24 @@ public class Intake {
 	private Integer id;
 	
 	private String range;
-	
 	private String gender;
-	
 	private Integer carbohydrates;
-	
 	private Integer protein;
-	
 	private Integer lipid;
-	
 	private Integer vitamin;
-	
 	private Integer mineral;
+	
+	public Intake(Integer id, String range, String gender, Integer carbohydrates, Integer protein, Integer lipid,
+			Integer vitamin, Integer mineral) {
+		this.id = id;
+		this.range = range;
+		this.gender = gender;
+		this.carbohydrates = carbohydrates;
+		this.protein = protein;
+		this.lipid = lipid;
+		this.vitamin = vitamin;
+		this.mineral = mineral;
+	}
+	
+	
 }
