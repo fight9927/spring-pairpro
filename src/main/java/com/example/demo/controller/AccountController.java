@@ -32,17 +32,17 @@ public class AccountController {
 	@PostMapping("/account/add")
 	public String store(
 			@RequestParam(value = "name", defaultValue = "") String name,
-			@RequestParam(value = "name", defaultValue = "") String tel,
+			@RequestParam(value = "tel", defaultValue = "") String tel,
 			@RequestParam(value = "email", defaultValue = "") String email,
-			@RequestParam(value = "name", defaultValue = "") String gender,
-			@RequestParam(value = "name", defaultValue = "") Integer age,
+			@RequestParam(value = "gender", defaultValue = "") String gender,
+			@RequestParam(value = "age", defaultValue = "") Integer age,
 			@RequestParam(value = "password", defaultValue = "") String password,
 			Model model) {
 
-		User user = new User(name, tel, email,gender,age, password);
+		User user = new User(name, tel, email, gender, age, password);
 		
 		userRepository.save(user);
 
-		return "redirect:/login";
+		return "redirect:/";
 	}
 }
