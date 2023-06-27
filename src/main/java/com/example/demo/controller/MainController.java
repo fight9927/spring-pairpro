@@ -87,6 +87,7 @@ public class MainController {
 			User u = user.get();
 			//ユーザのセッション登録
 			account.setName(u.getName());
+			account.setId(u.getId());
 			
 			Intake intake = null;
 			

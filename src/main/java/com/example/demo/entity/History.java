@@ -32,8 +32,7 @@ public class History {
 	}
 	
 	//ヒストリー登録	
-	public History(Integer id,Integer userId, String name,Integer carbohydrates,Integer protein, Integer lipid, Integer vitamin,Integer mineral) {
-	this.id=id;
+	public History(Integer userId, String name,Integer carbohydrates,Integer protein, Integer lipid, Integer vitamin,Integer mineral) {
 	this.userId = userId;
 	this.name = name;	
 	this.carbohydrates = carbohydrates;

@@ -11,6 +11,7 @@ import lombok.Data;
 public class Account {
 	
 	private String name;
+	private Integer id;
 
 	public Account() {
 	

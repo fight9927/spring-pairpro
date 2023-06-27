@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Food;
 import com.example.demo.entity.History;
+import com.example.demo.model.Account;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.FoodRepository;
 import com.example.demo.repository.HistoryRepository;
@@ -27,6 +28,9 @@ public class ChoiceController {
 	
 	@Autowired
 	FoodRepository foodRepository;
+	
+	@Autowired
+	Account account;
 	
 	// 商品一覧表示
 		@GetMapping("/choice")
@@ -45,15 +49,14 @@ public class ChoiceController {
 		@PostMapping("/choice/{id}")
 		public String store(
 				@PathVariable(value = "id") Integer id,
-				@RequestParam(value = "name", defaultValue = "") String name,
-				@RequestParam(value = "name", defaultValue = "") Integer userId,
 				Model model) {
 			
 			Food food = foodRepository.findById(id).get();
+			Integer userId = account.getId();
 			
-			History history = new History(id, userId, name, food.getCarbohydrates(),food.getProtein(),food.getLipid(),food.getVitamin(),food.getMineral());
+			History history = new History(userId, food.getName(), food.getCarbohydrates(),food.getProtein(),food.getLipid(),food.getVitamin(),food.getMineral());
 			
-			 historyRepository.save(history);
+			historyRepository.save(history);
 
 			return "redirect:/main";
 		}
