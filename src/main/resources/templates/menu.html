@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <title>メニュー追加登録</title>
 </head>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 <body>	
+			<header th:replace="header"></header>
 	<main>
 		<form action="/menu/add" method="post">
 		<table border="1">
@@ -74,5 +76,6 @@
 			<button>野菜追加登録</button>
 		</form>
 	</main>
+	<footer th:replace="footer"></footer>
 </body>
 </html>

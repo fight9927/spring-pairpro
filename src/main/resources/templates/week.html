@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <title>今週の記録</title>
 </head>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <body>
-	<header th:replace="header"></header>
+		<header th:replace="header"></header>
 	<a th:href="" th:each="category:${categories}">[[${category.name}]]<br></a>
 	
 <!--	<table border="1">-->
@@ -27,6 +28,6 @@
 <!--			<td>[[${food.mineral}]]</td>-->
 <!--		</tr>-->
 <!--	</table>-->
-	
+	<footer th:replace="footer"></footer>
 </body>
 </html>

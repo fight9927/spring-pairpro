@@ -16,4 +16,7 @@ public class Account {
 	public Account() {
 	
 	}
+	public Account(String name) {
+	this.name = name;
+	}
 }

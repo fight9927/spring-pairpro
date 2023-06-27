@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <body>
+		<header th:replace="header"></header>
+	<hr>
 	<a href="/menu/add" >Myメニュー追加はこちら</a>
 	<br>
 	<a th:each="category:${categories}"
@@ -29,5 +32,6 @@
 			<td>[[${food.mineral}]]</td>
 		</tr>
 	</table>
+	<footer th:replace="footer"></footer>
 </body>
 </html>
