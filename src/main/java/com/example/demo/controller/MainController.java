@@ -114,15 +114,11 @@ public class MainController {
 			List<Category> categoriesList = categoryRepository.findAll();
 			model.addAttribute("categories", categoriesList);
 			
-			List<History> historiesList = historyRepository.findAll();
+			List<History> historiesList = historyRepository.findByUserId(u.getId());
 			model.addAttribute("histories", historiesList);
 			
 			//Historyの各要素を足し合わせる
-//				int total = 0;
-//				
-//				for (History history : historiesList) {
-//					total += history.getCarbohydrates();
-//				}
+			
 			
 			//明日やること：摂取量と目標摂取量の差を表に映し出す
 			//食べたものがHistoryに追加されて、メイン画面に表示される
