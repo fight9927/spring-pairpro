@@ -33,5 +33,5 @@ public class ChoiceController {
 			
 			return "choice";
 		}
-
+		
 }

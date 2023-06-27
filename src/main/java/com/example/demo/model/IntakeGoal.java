@@ -10,10 +10,6 @@ import lombok.Data;
 @SessionScope
 public class IntakeGoal {
 	
-	private Integer carbohydrates;
-	private Integer protein;
-	private Integer lipid;
-	private Integer vitamin;
-	private Integer mineral;
+	private Integer id;
 	
 }
