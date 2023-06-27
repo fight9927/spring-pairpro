@@ -41,12 +41,6 @@ public class MainController {
 	@Autowired 
 	IntakeRepository intakeRepository;
 	
-//	@Autowired
-//	User user;
-//	
-//	@Autowired
-//	Category category;
-	
 	@Autowired
 	Account account;
 	
@@ -91,6 +85,7 @@ public class MainController {
 		Optional<User> user = userRepository.findByEmailAndPassword(email, password);
 		if(user.isEmpty() == false) {
 			User u = user.get();
+			//ユーザのセッション登録
 			account.setName(u.getName());
 			
 			Intake intake = null;
@@ -112,12 +107,8 @@ public class MainController {
 			} else if (u.getAge() > 65 && u.getGender() == "女性") {
 				intake = intakeRepository.findById(8).get();
 			}
-			
-//			intakeGoal.setCarbohydrates(intake.getCarbohydrates());
-//			intakeGoal.setProtein(intake.getProtein());
-//			intakeGoal.setLipid(intake.getLipid());
-//			intakeGoal.setVitamin(intake.getVitamin());
-//			intakeGoal.setMineral(intake.getMineral());
+			//目安摂取量をセッション登録
+			intakeGoal.setId(intake.getId());
 			
 			List<Category> categoriesList = categoryRepository.findAll();
 			model.addAttribute("categories", categoriesList);
@@ -125,9 +116,16 @@ public class MainController {
 			List<History> historiesList = historyRepository.findAll();
 			model.addAttribute("histories", historiesList);
 			
+			//Historyの各要素を足し合わせる
+			
+			
 			//明日やること：摂取量と目標摂取量の差を表に映し出す
 			//食べたものがHistoryに追加されて、メイン画面に表示される
-			//Integer[] gap = {};
+//			Integer[] gap = {intake.getCarbohydrates(),
+//					         intake.getProtein(),
+//					         intake.getLipid(),
+//					         intake.getVitamin(),
+//					         intake.getMineral()};
 			
 			return "main";
 		}

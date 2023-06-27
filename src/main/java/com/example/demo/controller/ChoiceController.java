@@ -40,6 +40,7 @@ public class ChoiceController {
 			
 			return "choice";
 		}
+
 	//選択したらmainで表示
 		@PostMapping("/choice/{id}")
 		public String store(
@@ -56,5 +57,6 @@ public class ChoiceController {
 
 			return "redirect:/main";
 		}
+
 		
 }
