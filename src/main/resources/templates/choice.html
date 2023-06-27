@@ -8,6 +8,12 @@
 <body>	
 		<header th:replace="header"></header>
 	<main>
+		
+		<form action="/choice/search" method="get">
+			<input type="hidden" name="categoryId" th:value="${categoryId}">
+			<input type="text" name="keyword" th:value="${keyword}"><button>検索</button>
+		</form>
+		
 		<table border="1">
 		<tr>
 			<th>食品名・材料</th>

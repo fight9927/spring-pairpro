@@ -34,16 +34,19 @@ public class ChoiceController {
 		@GetMapping("/choice")
 		public String index(
 				@RequestParam(name="categoryId", required=false) Integer categoryId,
-				Model m
+				@RequestParam(name="keyword", defaultValue = "") String keyword,
+				Model model
 		) {
 			List<Food> foods = foodRepository.findByCategoryId(categoryId);
 			
-			m.addAttribute("foods",foods);
+			model.addAttribute("keyword", keyword);
+			model.addAttribute("categoryId", categoryId);
+			model.addAttribute("foods",foods);
 			
 			return "choice";
 		}
 
-	//選択したらmainで表示
+	//商品追加してmainで表示
 		@GetMapping("/choice/regist")
 		public String store(
 				@RequestParam(value = "foodId") Integer foodId,
@@ -59,5 +62,25 @@ public class ChoiceController {
 			return "redirect:/main";
 		}
 
-		
+	//検索機能
+		@GetMapping("/choice/search")
+		public String search(
+				@RequestParam(name = "keyword", defaultValue = "") String keyword,
+				@RequestParam(name = "categoryId") Integer categoryId,
+				Model model) {
+			
+			List<Food> foods = null;
+			
+			if (keyword.equals("")) {
+				foods = foodRepository.findByCategoryId(categoryId);
+			} else {
+				foods = foodRepository.findByCategoryIdAndNameLike(categoryId, "%" + keyword + "%");
+			}
+
+			model.addAttribute("foods", foods);
+			model.addAttribute("categoryId", categoryId);
+			model.addAttribute("keyword", keyword);
+			
+			return "choice";
+		}
 }
