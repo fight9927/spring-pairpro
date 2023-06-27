@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +16,6 @@ import com.example.demo.entity.Intake;
 import com.example.demo.entity.User;
 import com.example.demo.model.Account;
 import com.example.demo.model.IntakeGoal;
-import com.example.demo.model.TotalNutrients;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.HistoryRepository;
 import com.example.demo.repository.IntakeRepository;
@@ -48,9 +46,6 @@ public class MainController {
 	
 	@Autowired
 	IntakeGoal intakeGoal;
-	
-	@Autowired
-	TotalNutrients totalNutrients;
 	
 	//ログイン画面表示
 		@GetMapping("/")
@@ -123,7 +118,6 @@ public class MainController {
 			model.addAttribute("histories", historiesList);
 			
 			//Historyの各栄養素を足し合わせる
-			List<Integer> totalNutrients = new ArrayList<>();
 			
 			int totalCarbohydrates = 0;
 			int totalProtein = 0;
@@ -138,15 +132,13 @@ public class MainController {
 					totalLipid += h.getLipid();
 					totalVitamin += h.getVitamin();
 					totalMineral += h.getMineral();
-					
-					totalNutrients.add(totalCarbohydrates);
-					totalNutrients.add(totalProtein);
-					totalNutrients.add(totalLipid);
-					totalNutrients.add(totalVitamin);
-					totalNutrients.add(totalMineral);
 				}
-			model.addAttribute("totalNutrients", totalNutrients);	
-		
+			
+			model.addAttribute("total1", totalCarbohydrates);
+			model.addAttribute("total2", totalProtein);
+			model.addAttribute("total3", totalLipid);
+			model.addAttribute("total4", totalVitamin);
+			model.addAttribute("total5", totalMineral);
 			
 			//明日やること：摂取量と目標摂取量の差を表に映し出す
 			//食べたものがHistoryに追加されて、メイン画面に表示される
@@ -155,6 +147,7 @@ public class MainController {
 					         intake.getLipid() - totalLipid,
 					         intake.getVitamin() - totalVitamin,
 					         intake.getMineral() - totalMineral};
+			
 			
 			model.addAttribute("gap", gap);
 			

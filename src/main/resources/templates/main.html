@@ -31,7 +31,34 @@
 			<td>[[${food.vitamin}]]</td>
 			<td>[[${food.mineral}]]</td>
 		</tr>
+		<tr>
+			<th>合計摂取量</th>
+			<td>[[${total1}]]</td>
+			<td>[[${total2}]]</td>
+			<td>[[${total3}]]</td>
+			<td>[[${total4}]]</td>
+			<td>[[${total5}]]</td>
+		</tr>
 	</table>
+	
+	<table border="1">
+		<tr>
+			<th>炭水化物</th>
+			<th>タンパク質</th>
+			<th>脂質</th>
+			<th>ビタミン</th>
+			<th>ミネラル</th>
+		</tr>
+		<tr>
+			<td>[[${gap[0]}]]</td>
+			<td>[[${gap[1]}]]</td>
+			<td>[[${gap[2]}]]</td>
+			<td>[[${gap[3]}]]</td>
+			<td>[[${gap[4]}]]</td>
+		</tr>
+	</table>
+	
+	
 	<footer th:replace="footer"></footer>
 </body>
 </html>

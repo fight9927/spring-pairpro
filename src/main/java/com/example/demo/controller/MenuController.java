@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.entity.Category;
 import com.example.demo.entity.Food;
 import com.example.demo.entity.History;
+import com.example.demo.entity.Intake;
 import com.example.demo.model.Account;
+import com.example.demo.model.IntakeGoal;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.FoodRepository;
 import com.example.demo.repository.HistoryRepository;
+import com.example.demo.repository.IntakeRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -34,8 +37,11 @@ public class MenuController {
 	@Autowired
 	HistoryRepository historyRepository;
 	
-//	@Autowired
-//	Food food;
+	@Autowired
+	IntakeRepository intakeRepository;
+	
+    @Autowired
+	IntakeGoal intakeGoal;
 	
 	@Autowired
 	Account account;
@@ -49,11 +55,46 @@ public class MenuController {
 			return "login";
 		}
 		
+		Intake intake = intakeRepository.findById(intakeGoal.getId()).get();
+		
 		List<Category> categoriesList = categoryRepository.findAll();
 		model.addAttribute("categories", categoriesList);
 		
 		List<History> historiesList = historyRepository.findAll();
 		model.addAttribute("histories", historiesList);
+		
+		//Historyの各栄養素を足し合わせる
+		int totalCarbohydrates = 0;
+		int totalProtein = 0;
+		int totalLipid = 0;
+		int totalVitamin = 0;
+		int totalMineral = 0;
+		
+		for (History h : historiesList) {
+			
+				totalCarbohydrates += h.getCarbohydrates();
+				totalProtein += h.getProtein();
+				totalLipid += h.getLipid();
+				totalVitamin += h.getVitamin();
+				totalMineral += h.getMineral();
+			}
+		
+		model.addAttribute("total1", totalCarbohydrates);
+		model.addAttribute("total2", totalProtein);
+		model.addAttribute("total3", totalLipid);
+		model.addAttribute("total4", totalVitamin);
+		model.addAttribute("total5", totalMineral);
+		
+		//明日やること：摂取量と目標摂取量の差を表に映し出す
+		//食べたものがHistoryに追加されて、メイン画面に表示される
+		Integer[] gap = {intake.getCarbohydrates() - totalCarbohydrates,
+				         intake.getProtein() - totalProtein,
+				         intake.getLipid() - totalLipid,
+				         intake.getVitamin() - totalVitamin,
+				         intake.getMineral() - totalMineral};
+		
+		
+		model.addAttribute("gap", gap);
 		
 		return "main";
 	}
