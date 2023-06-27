@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Food;
@@ -46,12 +44,12 @@ public class ChoiceController {
 		}
 
 	//選択したらmainで表示
-		@PostMapping("/choice/{id}")
+		@GetMapping("/choice/regist")
 		public String store(
-				@PathVariable(value = "id") Integer id,
+				@RequestParam(value = "foodId") Integer foodId,
 				Model model) {
 			
-			Food food = foodRepository.findById(id).get();
+			Food food = foodRepository.findById(foodId).get();
 			Integer userId = account.getId();
 			
 			History history = new History(userId, food.getName(), food.getCarbohydrates(),food.getProtein(),food.getLipid(),food.getVitamin(),food.getMineral());
