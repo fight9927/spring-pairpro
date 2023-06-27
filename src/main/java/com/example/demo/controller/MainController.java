@@ -90,21 +90,21 @@ public class MainController {
 			
 			Intake intake = null;
 			
-			if (u.getAge() < 30 && u.getGender() == "男性") {
+			if (u.getAge() < 30 && u.getGender().equals("男性")) {
 				intake = intakeRepository.findById(1).get();
-			} else if (u.getAge() < 50 && u.getGender() == "男性") {
+			} else if (u.getAge() < 50 && u.getGender().equals("男性")) {
 				intake = intakeRepository.findById(2).get();
-			} else if (u.getAge() < 65 && u.getGender() == "男性") {
+			} else if (u.getAge() < 65 && u.getGender().equals("男性")) {
 				intake = intakeRepository.findById(3).get();
-			} else if (u.getAge() > 65 && u.getGender() == "男性") {
+			} else if (u.getAge() > 65 && u.getGender().equals("男性")) {
 				intake = intakeRepository.findById(4).get();
-			} else if (u.getAge() < 30 && u.getGender() == "女性") {
+			} else if (u.getAge() < 30 && u.getGender().equals("女性")) {
 				intake = intakeRepository.findById(5).get();
-			} else if (u.getAge() < 50 && u.getGender() == "女性") {
+			} else if (u.getAge() < 50 && u.getGender().equals("女性")) {
 				intake = intakeRepository.findById(6).get();
-			} else if (u.getAge() < 65 && u.getGender() == "女性") {
+			} else if (u.getAge() < 65 && u.getGender().equals("女性")) {
 				intake = intakeRepository.findById(7).get();
-			} else if (u.getAge() > 65 && u.getGender() == "女性") {
+			} else if (u.getAge() > 65 && u.getGender().equals("女性")) {
 				intake = intakeRepository.findById(8).get();
 			}
 			//目安摂取量をセッション登録
@@ -117,7 +117,11 @@ public class MainController {
 			model.addAttribute("histories", historiesList);
 			
 			//Historyの各要素を足し合わせる
-			
+//				int total = 0;
+//				
+//				for (History history : historiesList) {
+//					total += history.getCarbohydrates();
+//				}
 			
 			//明日やること：摂取量と目標摂取量の差を表に映し出す
 			//食べたものがHistoryに追加されて、メイン画面に表示される

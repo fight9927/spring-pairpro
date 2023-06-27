@@ -22,6 +22,10 @@ public class Intake {
 	private Integer vitamin;
 	private Integer mineral;
 	
+	public Intake() {
+		
+	}
+	
 	public Intake(Integer id, String range, String gender, Integer carbohydrates, Integer protein, Integer lipid,
 			Integer vitamin, Integer mineral) {
 		this.id = id;
