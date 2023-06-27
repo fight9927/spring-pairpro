@@ -10,7 +10,9 @@
 		<tr>
 			<th>食品名・材料</th>
 		</tr>
+		
 		<tr th:each="food:${foods}">
+			<form th:action="|/choice/${food.id}|"  method="POST">
 			<td><a href="/main" style="padding-left: 10px;">[[${food.name}]]</a></td>
 		</tr>
 		

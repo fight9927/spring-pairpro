@@ -9,4 +9,5 @@ import com.example.demo.entity.Food;
 public interface FoodRepository extends JpaRepository<Food, Integer> {
 	// SELECT * FROM items WHERE category_id = ?
 		List<Food> findByCategoryId(Integer categoryId);
+	
 }

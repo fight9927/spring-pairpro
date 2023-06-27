@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 @Table(name = "records")
 public class History {
-	
+	 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
@@ -20,4 +20,25 @@ public class History {
 	private Integer userId;
 	
 	private String name;
+	private Integer carbohydrates;
+	private Integer protein;
+	private Integer lipid;
+	private Integer vitamin;
+	private Integer mineral;
+	
+	public History() {
+		
+	}
+	
+	//ヒストリー登録	
+	public History(Integer id,Integer userId, String name,Integer carbohydrates,Integer protein, Integer lipid, Integer vitamin,Integer mineral) {
+	this.id=id;
+	this.userId = userId;
+	this.name = name;	
+	this.carbohydrates = carbohydrates;
+	this.protein = protein;
+	this.lipid = lipid;
+	this.vitamin = vitamin;
+	this.mineral = mineral;
+	}
 }
