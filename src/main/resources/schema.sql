@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS foods;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS records;
 DROP TABLE IF EXISTS intake;
+DROP TABLE IF EXISTS recommendation;
 
 --カテゴリーテーブル
 CREATE TABLE categories
@@ -57,6 +58,21 @@ CREATE TABLE intake
 id SERIAL PRIMARY KEY,
 range TEXT,
 gender TEXT,
+carbohydrates INTEGER,
+protein INTEGER,
+lipid INTEGER,
+vitamin INTEGER,
+mineral INTEGER
+);
+
+--お勧め用テーブル
+CREATE TABLE recommendation
+(
+id SERIAL PRIMARY KEY,
+genre Integer,
+type Integer,
+sort Integer,
+name TEXT,
 carbohydrates INTEGER,
 protein INTEGER,
 lipid INTEGER,
