@@ -32,7 +32,6 @@
 .menu-btn span:after {
     top: 8px;
 }
-s
 #menu-btn-check:checked ~ .menu-btn span {
     background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
 }
@@ -44,7 +43,6 @@ s
     top: 0;
     transform: rotate(-45deg);
 }
-
 #menu-btn-check {
     display: none;
 }
@@ -86,6 +84,7 @@ s
     top: 16px;
 }
 .menu-content {
+	text-align: left;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -96,9 +95,8 @@ s
     transition: all 0.5s;/*アニメーション設定*/
 }
 #menu-btn-check:checked ~ .menu-content {
-    left: 70%;/*メニューを画面内へ*/
+    left: 80%;/*メニューを画面内へ*/
 }
-
 	</style>
 	   <div class="hamburger-menu">
         <input type="checkbox" id="menu-btn-check">
@@ -119,5 +117,5 @@ s
                 </li>
             </ul>
         </div>
-    </div>
+    	</div>
 </header>

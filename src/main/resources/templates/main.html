@@ -11,16 +11,16 @@
 <body>
 		<header th:replace="header"></header>
 	<hr>
-	<div class="inline-block_test">
+	<div class="main">今日の栄養素計算表</div>
+	
+	<div class="line1">
+	<div class="line2">
 		<a href="/menu/add" >Myメニュー追加はこちら</a>
-	</div><br>
-	
-	<div class="inline-block_test">
 		<a th:each="category:${categories}"
-	   th:href="|/choice?categoryId=${category.id}|"
-	   style="margin-right: 5px;">[[${category.name}]]<br></a>
+		th:href="|/choice?categoryId=${category.id}|">[[${category.name}]]
+	   </a>
 	</div>
-	
+	</div>
 	<table border="1">
 		<tr>
 			<th>食品名・材料</th>
@@ -64,7 +64,6 @@
 			<td>[[${gap[4]}]]</td>
 		</tr>
 	</table>
-	
 	
 	<footer th:replace="footer"></footer>
 </body>

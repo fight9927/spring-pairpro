@@ -1,14 +1,13 @@
 /* 全体 */
 body {
-	background-color: #EDF4FC ; /* 背景色  */
+	background-color:cornsilk; /* 背景色  */
 	text-align: center; /* 中央寄せ */
     min-width: 900px; /* 最小幅 */
 }
 /* ヘッダー、ナビゲーションメニュー、フッター */
 header, nav, footer {
-	 background: #D4F4FC;
+  background: #D4F4FC;
   box-shadow: 0px 0px 0px 5px #dfefff;
-  border: dashed 2px white;
   padding: 0.2em 0.5em;
 }
 /* ヘッダー、ナビゲーション内リンク */
@@ -17,7 +16,6 @@ header a, nav a {
 }
 /* ヘッダー内見出し */
 header h1 {
-  border-bottom: solid 3px #cce4ff;
   position: relative;
   	font-size: 20pt;
 	margin: 10px auto;
@@ -48,16 +46,19 @@ main {
 table, th, td {
 	border-collapse: collapse;
 	border: 1px solid #7d8bae;
+	 height: 50px;
 }
 /* 表 */
 table {
     margin: 5px auto;
     min-width: 800px;
+    	width: 80%;
 }
 /* 表見出しセル */
 table th {
 	background: #7d8bae;
 	color: #ffffff;
+	 height: 50px;
 }
 /* 送信ボタン */
 button {
@@ -88,14 +89,33 @@ button:hover {
 }
 
 /* ボックス*/
-.parent {
-    text-align: center;         /* 子要素を左右中央揃えにする */
-    border: solid 2px;          /* 枠線指定 */
-    padding:  20px;             /* 余白指定 */
-}
-.inline-block_test {
-    display: inline-block;        /* インラインブロック要素にする */
+.block {
     background-color:  #ccc;      /* 背景色指定 */
     padding: 20px; 
     height: 100px;
+    margin: 0 auto;
+    width: 80%;
+    text-decoration: none;
+}
+
+
+.line2 a {
+	background-color:cadetblue;
+	text-decoration: none;
+	padding: 30px; 
+	 height: 25px;
+	width: 200px;
+	 margin: 20px;
+	display:inline-block;
+}
+.main{
+	font-size: 30px;
+	background:lightgreen;
+  	box-shadow: 0px 0px 0px 5px lightgreen;
+  	border: dashed 1px green;
+  	 height: 30px;
+	width: 80%;
+	padding: 30px;
+	margin: 0 auto;
+  	color: #454545;
 }
