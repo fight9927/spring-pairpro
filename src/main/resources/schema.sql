@@ -47,7 +47,8 @@ carbohydrates INTEGER,
 protein INTEGER,
 lipid INTEGER,
 vitamin INTEGER,
-mineral INTEGER
+mineral INTEGER,
+day DATE
 );
 
 --必要摂取量テーブル

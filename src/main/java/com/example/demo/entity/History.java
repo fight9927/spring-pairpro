@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,13 +28,14 @@ public class History {
 	private Integer lipid;
 	private Integer vitamin;
 	private Integer mineral;
+	private LocalDate day;
 	
 	public History() {
 		
 	}
 	
 	//ヒストリー登録	
-	public History(Integer userId, String name,Integer carbohydrates,Integer protein, Integer lipid, Integer vitamin,Integer mineral) {
+	public History(Integer userId, String name,Integer carbohydrates,Integer protein, Integer lipid, Integer vitamin,Integer mineral, LocalDate day) {
 	this.userId = userId;
 	this.name = name;	
 	this.carbohydrates = carbohydrates;
@@ -40,5 +43,6 @@ public class History {
 	this.lipid = lipid;
 	this.vitamin = vitamin;
 	this.mineral = mineral;
+	this.day = day;
 	}
 }

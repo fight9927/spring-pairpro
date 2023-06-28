@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,7 @@ public class ChoiceController {
 			Food food = foodRepository.findById(foodId).get();
 			Integer userId = account.getId();
 			
-			History history = new History(userId, food.getName(), food.getCarbohydrates(),food.getProtein(),food.getLipid(),food.getVitamin(),food.getMineral());
+			History history = new History(userId, food.getName(), food.getCarbohydrates(),food.getProtein(),food.getLipid(),food.getVitamin(),food.getMineral(), LocalDate.now());
 			
 			historyRepository.save(history);
 

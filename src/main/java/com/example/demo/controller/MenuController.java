@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +64,17 @@ public class MenuController {
 		List<Category> categoriesList = categoryRepository.findAll();
 		model.addAttribute("categories", categoriesList);
 		
-		List<History> historiesList = historyRepository.findByUserId(userId);
+		List<History> histories = historyRepository.findByUserId(userId);
+		
+		List<History> historiesList = new ArrayList<>();
+		
+		//その日食べたものを取得
+		for (History history : histories) {
+			if (LocalDate.now().isEqual(history.getDay())) {
+				historiesList.add(history);
+			}
+		}
+		
 		model.addAttribute("histories", historiesList);
 		
 		//Historyの各栄養素を足し合わせる
@@ -72,13 +84,13 @@ public class MenuController {
 		int totalVitamin = 0;
 		int totalMineral = 0;
 		
-		for (History h : historiesList) {
+		for (History history : historiesList) {
 			
-				totalCarbohydrates += h.getCarbohydrates();
-				totalProtein += h.getProtein();
-				totalLipid += h.getLipid();
-				totalVitamin += h.getVitamin();
-				totalMineral += h.getMineral();
+				totalCarbohydrates += history.getCarbohydrates();
+				totalProtein += history.getProtein();
+				totalLipid += history.getLipid();
+				totalVitamin += history.getVitamin();
+				totalMineral += history.getMineral();
 			}
 		
 		model.addAttribute("total1", totalCarbohydrates);

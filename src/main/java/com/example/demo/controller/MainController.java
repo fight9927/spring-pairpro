@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -111,27 +113,40 @@ public class MainController {
 			//目安摂取量をセッション登録
 			intakeGoal.setId(intake.getId());
 			
+			//カテゴリー一覧を取得
 			List<Category> categoriesList = categoryRepository.findAll();
 			model.addAttribute("categories", categoriesList);
 			
-			List<History> historiesList = historyRepository.findByUserId(u.getId());
+
+			List<History> histories = historyRepository.findByUserId(u.getId());
+			
+			List<History> historiesList = new ArrayList<>();
+			
+			//その日食べたものを取得
+			for (History history : histories) {
+				if (LocalDate.now().isEqual(history.getDay())) {
+					historiesList.add(history);
+				}
+			}
+			
+			
 			model.addAttribute("histories", historiesList);
 			
 			//Historyの各栄養素を足し合わせる
-			
 			int totalCarbohydrates = 0;
 			int totalProtein = 0;
 			int totalLipid = 0;
 			int totalVitamin = 0;
 			int totalMineral = 0;
 			
-			for (History h : historiesList) {
+			for (History history : historiesList) {
 				
-					totalCarbohydrates += h.getCarbohydrates();
-					totalProtein += h.getProtein();
-					totalLipid += h.getLipid();
-					totalVitamin += h.getVitamin();
-					totalMineral += h.getMineral();
+				//その日に摂取した各栄養素の合計値
+					totalCarbohydrates += history.getCarbohydrates();
+					totalProtein += history.getProtein();
+					totalLipid += history.getLipid();
+					totalVitamin += history.getVitamin();
+					totalMineral += history.getMineral();
 				}
 			
 			model.addAttribute("total1", totalCarbohydrates);
@@ -140,14 +155,12 @@ public class MainController {
 			model.addAttribute("total4", totalVitamin);
 			model.addAttribute("total5", totalMineral);
 			
-			//明日やること：摂取量と目標摂取量の差を表に映し出す
-			//食べたものがHistoryに追加されて、メイン画面に表示される
+			//目安摂取量-摂取した合計値　足りない要素を表示したいため
 			Integer[] gap = {intake.getCarbohydrates() - totalCarbohydrates,
 					         intake.getProtein() - totalProtein,
 					         intake.getLipid() - totalLipid,
 					         intake.getVitamin() - totalVitamin,
 					         intake.getMineral() - totalMineral};
-			
 			
 			model.addAttribute("gap", gap);
 			
