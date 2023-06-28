@@ -17,9 +17,22 @@ header a, nav a {
 }
 /* ヘッダー内見出し */
 header h1 {
-	font-size: 20pt;
+  border-bottom: solid 3px #cce4ff;
+  position: relative;
+  	font-size: 20pt;
 	margin: 10px auto;
-}
+	text-align: left;
+		
+  }
+h1:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px #ff8b5f;
+  bottom: -3px;
+  width: 20%;
+}	
+
 
 /* 仕切り線 */
 hr {
@@ -59,4 +72,30 @@ button {
 /* 送信ボタン(マウスオーバー時) */
 button:hover {
 	background-color: #f1b2b2;
+}
+.btn-gradient-radius {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #FFF;
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  transition: .4s;
+}
+
+.btn-gradient-radius:hover {
+  background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+}
+
+/* ボックス*/
+.parent {
+    text-align: center;         /* 子要素を左右中央揃えにする */
+    border: solid 2px;          /* 枠線指定 */
+    padding:  20px;             /* 余白指定 */
+}
+.inline-block_test {
+    display: inline-block;        /* インラインブロック要素にする */
+    background-color:  #ccc;      /* 背景色指定 */
+    padding: 20px; 
+    height: 100px;
 }

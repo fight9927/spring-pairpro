@@ -5,14 +5,21 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" type="text/css" href="/css/style.css">
+<style>
+	
+</style>
 <body>
 		<header th:replace="header"></header>
 	<hr>
-	<a href="/menu/add" >Myメニュー追加はこちら</a>
-	<br>
-	<a th:each="category:${categories}"
+	<div class="inline-block_test">
+		<a href="/menu/add" >Myメニュー追加はこちら</a>
+	</div><br>
+	
+	<div class="inline-block_test">
+		<a th:each="category:${categories}"
 	   th:href="|/choice?categoryId=${category.id}|"
 	   style="margin-right: 5px;">[[${category.name}]]<br></a>
+	</div>
 	
 	<table border="1">
 		<tr>
