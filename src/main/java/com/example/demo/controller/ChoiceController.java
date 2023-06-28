@@ -80,6 +80,7 @@ public class ChoiceController {
 			model.addAttribute("foods", foods);
 			model.addAttribute("categoryId", categoryId);
 			model.addAttribute("keyword", keyword);
+			//表示できるものはありませんメッセージを作る
 			
 			return "choice";
 		}

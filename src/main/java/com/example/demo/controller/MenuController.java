@@ -55,12 +55,14 @@ public class MenuController {
 			return "login";
 		}
 		
+		Integer userId = account.getId();
+		
 		Intake intake = intakeRepository.findById(intakeGoal.getId()).get();
 		
 		List<Category> categoriesList = categoryRepository.findAll();
 		model.addAttribute("categories", categoriesList);
 		
-		List<History> historiesList = historyRepository.findAll();
+		List<History> historiesList = historyRepository.findByUserId(userId);
 		model.addAttribute("histories", historiesList);
 		
 		//Historyの各栄養素を足し合わせる
@@ -85,8 +87,7 @@ public class MenuController {
 		model.addAttribute("total4", totalVitamin);
 		model.addAttribute("total5", totalMineral);
 		
-		//明日やること：摂取量と目標摂取量の差を表に映し出す
-		//食べたものがHistoryに追加されて、メイン画面に表示される
+		
 		Integer[] gap = {intake.getCarbohydrates() - totalCarbohydrates,
 				         intake.getProtein() - totalProtein,
 				         intake.getLipid() - totalLipid,
