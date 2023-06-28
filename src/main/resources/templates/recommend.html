@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="/recommend" method="post">
+	食べたいジャンル<br>
+	<select name="genre">
+		<option value="01">こだわらない</option>
+		<option value="02">和食</option>
+		<option value="03">洋食</option>
+		<option value="04">中華</option>
+	</select>
+	<br>
+	食べたいもの<br>
+	<select name="type">
+		<option value="11">こだわらない</option>
+		<option value="12">あっさり</option>
+		<option value="13">がっつり</option>
+	</select>
+	<br>
+	献立種類<br>
+	<select name="sort">
+		<option value="21">カロリー低めの献立</option>
+		<option value="22">一人暮らしの献立</option>
+		<option value="23">麺料理の献立</option>
+		<option value="24">夏バテの時の献立</option>
+		<option value="25">春が旬の献立</option>
+		<option value="26">夏が旬の献立</option>
+		<option value="27">秋が旬の献立</option>
+		<option value="28">冬が旬の献立</option>
+	</select>
+	<input type="submit" value="献立検索">
+	</form>
+</body>
+</html>
