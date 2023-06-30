@@ -6,10 +6,14 @@ body {
     min-width: 900px; /* 最小幅 */
 }
 /* ヘッダー、ナビゲーションメニュー、フッター */
-header, nav, footer {
+header, nav{
   background: #F2F3F4;
-  
 }
+footer{
+	color: #F2F3F4;
+	background-color: #1F1E26;
+	height: 50px;
+	}
 /* ヘッダー、ナビゲーション内リンク */
 header a, nav a {
 	color: #4A4952;
@@ -40,10 +44,9 @@ table, th, td {
 }
 /* 表 */
 table {
-	font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
 	font-size: 20px;
+	margin: 0 auto;
 	background-color:#F2F3F4;
-    margin: 15px auto;
     min-width: 800px;
     	width: 70%;
 }
@@ -102,7 +105,6 @@ button:hover {
 	 align-items: center;
 	display: inline-block;
 	font-size: 30px;
-	background:#03C03C;
   	 height: 10px;
 	width: 100%;
 	padding: 40px;
@@ -119,7 +121,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     z-index: 90;
-    background-color: #3584bb;
+    background-color:#F2F3F4;
 }
 .menu-btn span,
 .menu-btn span:before,
@@ -129,7 +131,7 @@ button:hover {
     height: 3px;
     width: 25px;
     border-radius: 3px;
-    background-color: #ffffff;
+    background-color: white;
     position: absolute;
 }
 .menu-btn span:before {
@@ -143,12 +145,12 @@ button:hover {
     top: 10px;
     right: 10px;
     display: flex;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     justify-content: center;
     align-items: center;
     z-index: 90;
-    background-color: #3584bb;
+    background-color:#37B049 ;
 }
 .menu-btn span,
 .menu-btn span:before,
@@ -158,7 +160,8 @@ button:hover {
     height: 3px;
     width: 25px;
     border-radius: 3px;
-    background-color: #ffffff;
+    background-color: #F2F3F4;
+        opacity: 0.5;
     position: absolute;
 }
 .menu-btn span:before {
@@ -188,13 +191,13 @@ button:hover {
     top: 0;
     left: 0;
     z-index: 80;
-    background-color: #3584bb;
+    background-color: #F2F3F4;
 }
 .menu-content ul {
     padding: 70px 10px 0;
 }
 .menu-content ul li {
-    border-bottom: solid 1px #ffffff;
+    border-bottom: solid 1px white;
     list-style: none;
     text-align: left;
 }
@@ -203,7 +206,7 @@ button:hover {
     width: 100%;
     font-size: 15px;
     box-sizing: border-box;
-    color:#ffffff;
+    color:#1F1E26;
     text-decoration: none;
     padding: 9px 15px 10px 0;
     position: relative;
@@ -212,8 +215,8 @@ button:hover {
     content: "";
     width: 7px;
     height: 7px;
-    border-top: solid 2px #ffffff;
-    border-right: solid 2px #ffffff;
+    border-top: solid 2px #1F1E26;
+    border-right: solid 2px #1F1E26;
     transform: rotate(45deg);
     position: absolute;
     right: 11px;
@@ -226,7 +229,7 @@ button:hover {
     top: 0;
     left: 100%;/*leftの値を変更してメニューを画面外へ*/
     z-index: 80;
-    background-color: #3584bb;
+    background-color: #F2F3F4;
     transition: all 0.5s;/*アニメーション設定*/
 }
 #menu-btn-check:checked ~ .menu-content {
@@ -276,4 +279,13 @@ a img {
 .text1:focus {
     outline: 0;
     box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+}
+.eiyou {
+	width: 45%;
+	margin-left: 100px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+recomend-choice inout{
+	
 }
