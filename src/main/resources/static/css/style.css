@@ -1,41 +1,31 @@
 /* 全体 */
 body {
-	background-color:cornsilk; /* 背景色  */
+	font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+	background-color:white; /* 背景色  */
 	text-align: center; /* 中央寄せ */
     min-width: 900px; /* 最小幅 */
 }
 /* ヘッダー、ナビゲーションメニュー、フッター */
 header, nav, footer {
-  background: #D4F4FC;
-  box-shadow: 0px 0px 0px 5px #dfefff;
-  padding: 0.2em 0.5em;
+  background: #F2F3F4;
+  
 }
 /* ヘッダー、ナビゲーション内リンク */
 header a, nav a {
-	color: #ffffff;
+	color: #4A4952;
+}
+header{
+	background-color: #F2F3F4;
 }
 /* ヘッダー内見出し */
 header h1 {
-  position: relative;
-  	font-size: 20pt;
-	margin: 10px auto;
+	padding: 0px;
 	text-align: left;
-		
+	display: inline;
+  	position: relative;
+  	font-size: 20pt;
+	text-align: left;		
   }
-h1:after {
-  position: absolute;
-  content: " ";
-  display: block;
-  border-bottom: solid 3px #ff8b5f;
-  bottom: -3px;
-  width: 20%;
-}	
-
-
-/* 仕切り線 */
-hr {
-	border-top: 2px dashed #7d8bae;
-}
 /* メイン */
 main {
 	background-color: #FFFFFF;
@@ -45,20 +35,23 @@ main {
 /* 表線 */
 table, th, td {
 	border-collapse: collapse;
-	border: 1px solid #7d8bae;
-	 height: 50px;
+	border: 1px solid lightyellow;
+	height: 50px;
 }
 /* 表 */
 table {
-    margin: 5px auto;
+	font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+	font-size: 20px;
+	background-color:#F2F3F4;
+    margin: 15px auto;
     min-width: 800px;
-    	width: 80%;
+    	width: 70%;
 }
 /* 表見出しセル */
 table th {
-	background: #7d8bae;
+	background:#4A4952;
 	color: #ffffff;
-	 height: 50px;
+	 height: 60px;
 }
 /* 送信ボタン */
 button {
@@ -88,34 +81,199 @@ button:hover {
   background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
 }
 
-/* ボックス*/
-.block {
-    background-color:  #ccc;      /* 背景色指定 */
-    padding: 20px; 
-    height: 100px;
-    margin: 0 auto;
-    width: 80%;
-    text-decoration: none;
-}
-
+/* ホーム画面*/
 
 .line2 a {
-	background-color:cadetblue;
+	 box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+	background-color:#F2F3F4;
+	border:solid 1px #1F1E26;
+	border-radius: 20px;
 	text-decoration: none;
-	padding: 30px; 
-	 height: 25px;
+	font-size: 20px;
+	padding: 20px; 
+	 height: 20px;
 	width: 200px;
-	 margin: 20px;
+	 margin: 15px;
 	display:inline-block;
+	font-weight: bold;
 }
 .main{
+	font-weight: bold;
+	 align-items: center;
+	display: inline-block;
 	font-size: 30px;
-	background:lightgreen;
-  	box-shadow: 0px 0px 0px 5px lightgreen;
-  	border: dashed 1px green;
-  	 height: 30px;
-	width: 80%;
-	padding: 30px;
-	margin: 0 auto;
+	background:#03C03C;
+  	 height: 10px;
+	width: 100%;
+	padding: 40px;
+	margin: 10ox;
   	color: #454545;
+  }
+.menu-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color: #3584bb;
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: absolute;
+}
+.menu-btn span:before {
+    bottom: 8px;
+}
+.menu-btn span:after {
+    top: 8px;
+}
+.menu-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color: #3584bb;
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: absolute;
+}
+.menu-btn span:before {
+    bottom: 8px;
+}
+.menu-btn span:after {
+    top: 8px;
+}
+#menu-btn-check:checked ~ .menu-btn span {
+    background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+#menu-btn-check {
+    display: none;
+}
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    background-color: #3584bb;
+}
+.menu-content ul {
+    padding: 70px 10px 0;
+}
+.menu-content ul li {
+    border-bottom: solid 1px #ffffff;
+    list-style: none;
+    text-align: left;
+}
+.menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    color:#ffffff;
+    text-decoration: none;
+    padding: 9px 15px 10px 0;
+    position: relative;
+}
+.menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 11px;
+    top: 16px;
+}
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;/*leftの値を変更してメニューを画面外へ*/
+    z-index: 80;
+    background-color: #3584bb;
+    transition: all 0.5s;/*アニメーション設定*/
+}
+#menu-btn-check:checked ~ .menu-content {
+    left: 80%;/*メニューを画面内へ*/
+}
+a img {
+	width: 40px;
+	height: 35px;
+}
+.message {
+	 height: 100px;
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0.5em 1em;
+    border: solid 5px #95ccff;
+    border-radius: 10px;
+    width: 70%;
+}
+.message .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 20px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 30px;
+    background: #FFF;
+    color: #95ccff;
+    font-weight: bold;
+}
+.message p {
+    margin: 0; 
+    padding: 0;
+}
+.text1{
+    height: 2.4em;
+    width: 20%;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 1px #ccc inset;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+.text1:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
