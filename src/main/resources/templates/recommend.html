@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <body>
+	
+	<header th:replace="header"></header>
+		
 	<form action="/recommend" method="post">
 	食べたいジャンル<br>
 	<select name="genre">
@@ -34,5 +38,7 @@
 	</select>
 	<input type="submit" value="献立検索">
 	</form>
+	
+	<footer th:replace="footer"></footer>
 </body>
 </html>

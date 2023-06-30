@@ -11,7 +11,7 @@ public interface HistoryRepository extends JpaRepository<History, Integer> {
 	
 	List<History> findByUserId(Integer userId);
 	
-	List<History> findByUserIdAndDay(Integer userId, LocalDate day);
+	List<History> findByUserIdAndDay(Integer userId, LocalDate date);
 	
 	//日付ごとにグループ化してそれを表示させたいんじゃ！！
 //	@Query(
