@@ -4,7 +4,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <body>
-	[[${recommend}]]
+	
+	<header th:replace="header"></header>
+	
+	<th:block>
+		<ul th:each="recommend:${recommends}">
+			<li>[[${recommend.name}]]</li>
+		</ul>
+	</th:block>
+	
+	<footer th:replace="footer"></footer>
 </body>
 </html>

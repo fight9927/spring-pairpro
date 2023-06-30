@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +30,22 @@ public class HistroyController {
 		
 		Integer userId = account.getId();
 		
-		List<History> historiesList = historyRepository.findByUserId(userId);
+		List<List<History>> historiesList = new ArrayList<>();
 		
+		//LocalDate now = LocalDate.now();
 		
+		for (int i = 0; i <= 7; i++) {
+			
+			LocalDate now = LocalDate.now();
+			List<History> tmp = historyRepository.findByUserIdAndDay(userId, now.minusDays(i));
+			
+			historiesList.add(tmp);
+		}
+				model.addAttribute("histories", historiesList);
 		
-		
-		return "";
+		return "week";
 	}
+		
 	
 	@PostMapping("/history")
 	public String show(
@@ -44,7 +54,7 @@ public class HistroyController {
 		
 		Integer userId = account.getId();
 		
-		List<History> historiesList = historyRepository.findByUserIdAndDay(userId, day);
+		//List<History> historiesList = historyRepository.findByUserIdAndDay(userId, day);
 		
 		return "";
 	}

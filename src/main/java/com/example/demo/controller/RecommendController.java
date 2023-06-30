@@ -32,8 +32,8 @@ public class RecommendController {
 			@RequestParam(name = "sort") Integer sort,
 			Model model) {
 		
-		List<Recommendation> recommend = recommendationRepository.findByGenreAndTypeAndSort(genre, type, sort);
-		model.addAttribute("recommend", recommend);
+		List<Recommendation> recommends = recommendationRepository.findByGenreAndTypeAndSort(genre, type, sort);
+		model.addAttribute("recommends", recommends);
 		
 		return "showRecommend";
 	}
