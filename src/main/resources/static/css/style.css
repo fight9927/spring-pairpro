@@ -286,6 +286,11 @@ a img {
 	margin-top: 30px;
 	margin-bottom: 10px;
 }
-recomend-choice inout{
-	
+.recommend-choice {
+	width: 30%;
+	display: block;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	align-items: center;
+	background-color:#F2F3F4 ;
 }
