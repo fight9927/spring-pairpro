@@ -1,10 +1,19 @@
 package com.example.demo.controller;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.jfree.chart.ChartColor;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.StandardChartTheme;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -164,7 +173,45 @@ public class MainController {
 			
 			model.addAttribute("gap", gap);
 			
-			return "main";
+			FileOutputStream fos = null;
+			
+			try {
+			    // 日本語が文字化けしないテーマ
+			    ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());
+			    
+			    // グラフデータを設定する
+			    DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+			    dataset.addValue(intake.getCarbohydrates(), "炭水化物", "炭水化物");
+			    dataset.addValue(totalCarbohydrates, "炭水化物", "炭水化物");
+			    dataset.addValue(intake.getProtein(), "プロテイン", "プロテイン");
+			    dataset.addValue(totalProtein, "プロテイン", "プロテイン");
+			    dataset.addValue(intake.getLipid(), "脂質", "脂質");
+			    dataset.addValue(totalLipid, "脂質", "脂質");
+			    dataset.addValue(intake.getVitamin(), "ビタミン", "ビタミン");
+			    dataset.addValue(totalVitamin, "ビタミン", "ビタミン");
+			    dataset.addValue(intake.getMineral(), "ミネラル", "ミネラル");
+			    dataset.addValue(totalMineral, "ミネラル", "ミネラル");
+			    
+			    // グラフを生成する
+			    JFreeChart chart = ChartFactory.createBarChart("", "栄養素", "摂取量", dataset, PlotOrientation.VERTICAL, true, false, false);
+			    
+			 // 背景色を設定
+			    chart.setBackgroundPaint(ChartColor.WHITE);
+
+			    // ファイルへ出力する
+			    fos = new FileOutputStream(this.getClass().getSimpleName() + ".jpg");
+			    ChartUtilities.writeChartAsPNG(fos, chart, 600, 400);
+			    
+			} catch (IOException e) {
+			    // エラー処理
+			} 
+			  model.addAttribute("fos", fos);    
+			
+				return "main";
+				//IOUtils.closeQuietly(fos);
+			
+			
+			//return "main";
 		}
 		
        	model.addAttribute("message", "登録情報と異なります");
