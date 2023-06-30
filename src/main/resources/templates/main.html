@@ -13,13 +13,11 @@
 	<hr>
 	<div class="main">今日の栄養素計算表</div>
 	
-	<div class="line1">
 	<div class="line2">
-		<a href="/menu/add" >Myメニュー追加はこちら</a>
+		<a href="/menu/add" >Myメニュー追加</a>
 		<a th:each="category:${categories}"
-		th:href="|/choice?categoryId=${category.id}|">[[${category.name}]]
-	   </a>
-	</div>
+		th:href="|/choice?categoryId=${category.id}|">
+		[[${category.name}]]</a>
 	</div>
 	<table border="1">
 		<tr>
@@ -64,7 +62,11 @@
 			<td>[[${gap[4]}]]</td>
 		</tr>
 	</table>
-	
+	<div class="message">
+    <span class="box-title">Comment</span>
+    <p>ここに文章</p>
+	</div>
+</div>
 	<footer th:replace="footer"></footer>
 </body>
 </html>
