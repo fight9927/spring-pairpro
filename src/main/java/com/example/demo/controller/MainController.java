@@ -1,9 +1,10 @@
 package com.example.demo.controller;
 
-import java.io.FileOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,7 +13,6 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.StandardChartTheme;
-import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -173,7 +173,7 @@ public class MainController {
 			
 			model.addAttribute("gap", gap);
 			
-			FileOutputStream fos = null;
+			//FileOutputStream fos = null;
 			
 			try {
 			    // 日本語が文字化けしないテーマ
@@ -181,37 +181,38 @@ public class MainController {
 			    
 			    // グラフデータを設定する
 			    DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-			    dataset.addValue(intake.getCarbohydrates(), "炭水化物", "炭水化物");
-			    dataset.addValue(totalCarbohydrates, "炭水化物", "炭水化物");
-			    dataset.addValue(intake.getProtein(), "プロテイン", "プロテイン");
-			    dataset.addValue(totalProtein, "プロテイン", "プロテイン");
-			    dataset.addValue(intake.getLipid(), "脂質", "脂質");
-			    dataset.addValue(totalLipid, "脂質", "脂質");
-			    dataset.addValue(intake.getVitamin(), "ビタミン", "ビタミン");
-			    dataset.addValue(totalVitamin, "ビタミン", "ビタミン");
-			    dataset.addValue(intake.getMineral(), "ミネラル", "ミネラル");
-			    dataset.addValue(totalMineral, "ミネラル", "ミネラル");
+			    
+			    //dataset.addValue(100, "炭水化物", "炭水化物(目標)");
+			    dataset.addValue((totalCarbohydrates / intake.getCarbohydrates()) * 100, "炭水化物", "炭水化物");
+			    //dataset.addValue(100, "プロテイン", "プロテイン(目標)");
+			    dataset.addValue((totalProtein / intake.getProtein()) * 100, "プロテイン", "プロテイン");
+			    //dataset.addValue(100, "脂質", "脂質(目標)");
+			    dataset.addValue((totalLipid / intake.getLipid()) * 100, "脂質", "脂質");
+			    //dataset.addValue(100, "ビタミン", "ビタミン(目標)");
+			    dataset.addValue((totalVitamin / intake.getVitamin()) * 100, "ビタミン", "ビタミン");
+			    //dataset.addValue(100, "ミネラル", "ミネラル(目標)");
+			    dataset.addValue((totalMineral / intake.getMineral()) * 100, "ミネラル", "ミネラル");
 			    
 			    // グラフを生成する
-			    JFreeChart chart = ChartFactory.createBarChart("", "栄養素", "摂取量", dataset, PlotOrientation.VERTICAL, true, false, false);
+			    JFreeChart chart = ChartFactory.createBarChart("", "栄養素", "摂取量割合(%)", dataset);
 			    
 			 // 背景色を設定
 			    chart.setBackgroundPaint(ChartColor.WHITE);
 
 			    // ファイルへ出力する
-			    fos = new FileOutputStream(this.getClass().getSimpleName() + ".jpg");
-			    ChartUtilities.writeChartAsPNG(fos, chart, 600, 400);
+			    //fos = new FileOutputStream(this.getClass().getSimpleName() + ".jpg");
+			    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+			    ChartUtilities.writeChartAsPNG(byteArrayOutputStream, chart, 600, 400);
+			    String base64string = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
+			    String dataUri = "data:image/png;base64," + base64string;
+			    model.addAttribute("dataUri", dataUri); 
 			    
 			} catch (IOException e) {
 			    // エラー処理
-			} 
-			  model.addAttribute("fos", fos);    
+			}     
 			
 				return "main";
-				//IOUtils.closeQuietly(fos);
-			
-			
-			//return "main";
+				
 		}
 		
        	model.addAttribute("message", "登録情報と異なります");
