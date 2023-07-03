@@ -111,6 +111,8 @@ button:hover {
 	margin: 10ox;
   	color: #454545;
   }
+  
+  /* メニューバー*/
 .menu-btn {
     position: fixed;
     top: 10px;
@@ -235,10 +237,8 @@ button:hover {
 #menu-btn-check:checked ~ .menu-content {
     left: 80%;/*メニューを画面内へ*/
 }
-a img {
-	width: 40px;
-	height: 35px;
-}
+
+/*コメント表示*/
 .message {
 	 height: 100px;
     position: relative;
@@ -265,9 +265,11 @@ a img {
     margin: 0; 
     padding: 0;
 }
+/* 会員登録画面*/
 .text1{
-    height: 2.4em;
-    width: 20%;
+	font-size: 20px;
+    height: 40px;
+	width: 20%;
     padding: 0 16px;
     border-radius: 4px;
     border: none;
@@ -280,17 +282,54 @@ a img {
     outline: 0;
     box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
-.eiyou {
-	width: 45%;
-	margin-left: 100px;
+
+/* メイン画面*/
+.roll {
+	width: 43%;
+	overflow-y: scroll; 
+	height: 400px;
 	margin-top: 30px;
-	margin-bottom: 10px;
+	padding: 0px;
 }
+.eiyou1{
+	width: 45%;
+	margin-left:50px;
+	margin-right: 0px; 
+}
+.eiyou2{
+	width: 43%;
+	margin-left: 50px;
+}
+
+/* おすすめ検索*/
 .recommend-choice {
-	width: 30%;
-	display: block;
+	width: 50%;
+	height: 700px;
+	margin: 0 auto;
 	margin-top: 50px;
 	margin-bottom: 50px;
-	align-items: center;
 	background-color:#F2F3F4 ;
+	font-size:25px ;
+}
+.recommend-choice select{
+	margin:50px;
+	padding: auto;
+}
+.aaaa{
+	font-size: 20px;
+	padding: 5px;
+}
+.recommend{
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+.account{
+	font-size: 25px;
+	height: 700px;
+}
+.account th{
+	width: 30%;
+}
+account td{
+	width: 40%;
 }

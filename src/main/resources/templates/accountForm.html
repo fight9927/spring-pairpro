@@ -19,7 +19,7 @@
 					<th>お名前</th>
 					<td>
 						<th:blovk>
-							<span style="color: red;">[[${message1}]]</span>
+							<span style="color: red;" class="m">[[${message1}]]</span><br>
 						</th:blovk>
 						<input type="text" name="name"  class="text1" placeholder="(例)山田太郎" th:value="${name}" required>
 					</td>
@@ -30,7 +30,7 @@
 					</th>
 					<td>
 						<th:blovk>
-							<span style="color: red;">[[${message2}]]</span>
+							<span style="color: red;" class="m">[[${message2}]]</span><br>
 						</th:blovk>
 						<input type="text" name="tel"  class="text1" placeholder="(例)09012341234" th:value="${tel}" required>
 					</td>
@@ -39,7 +39,7 @@
 				<tr><th>e-mail</th>
 					<td>
 						<th:blovk>
-							<span style="color: red;">[[${message3}]]</span>
+							<span style="color: red;" class="m">[[${message3}]]</span><br>
 						</th:blovk>
 						<input type="text" name="email"  class="text1" placeholder="(例)account@example.com" th:value="${email}" required>
 					</td>
@@ -57,7 +57,7 @@
 					<th>年齢</th>
 					<td>
 						<th:blovk>
-							<span style="color: red;">[[${message4}]]</span>
+							<span style="color: red;" class="m">[[${message4}]]</span><br>
 						</th:blovk>
 						<select name="ageYear"  class="text1" th:value="ageYear">
 							<Option value="0">ー</Option>
@@ -188,7 +188,7 @@
 					<th>パスワード</th>
 					<td>
 						<th:blovk>
-							<span style="color: red;">[[${message5}]]</span>
+							<span style="color: red;">[[${message5}]]</span>	<br>
 						</th:blovk>
 						<input type="password" name="password1" class="text1" required>
 					</td>
@@ -198,7 +198,7 @@
 					<th>パスワード（確認用）</th>
 					<td>
 						<th:blovk>
-							<span style="color: red;">[[${message6}]]</span>
+							<span style="color: red;">[[${message6}]]</span><br>
 						</th:blovk>
 						<input type="password" name="password2" class="text1" required>
 					</td>
