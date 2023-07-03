@@ -1,18 +1,18 @@
 package com.example.demo.controller;
 
-import java.io.ByteArrayOutputStream;
+import java.awt.Color;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
-import org.jfree.chart.ChartColor;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.StandardChartTheme;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -173,7 +173,7 @@ public class MainController {
 			
 			model.addAttribute("gap", gap);
 			
-			//FileOutputStream fos = null;
+			FileOutputStream fos = null;
 			
 			try {
 			    // 日本語が文字化けしないテーマ
@@ -194,24 +194,24 @@ public class MainController {
 			    dataset.addValue((totalMineral / intake.getMineral()) * 100, "ミネラル", "ミネラル");
 			    
 			    // グラフを生成する
-			    JFreeChart chart = ChartFactory.createBarChart("", "栄養素", "摂取量割合(%)", dataset);
+			    JFreeChart chart = ChartFactory.createBarChart("", "栄養素", "摂取量割合(%)", dataset,PlotOrientation.VERTICAL, true, false, false);
 			    
-			 // 背景色を設定
-			    chart.setBackgroundPaint(ChartColor.WHITE);
+			    // 背景色を設定
+			    chart.setBackgroundPaint(Color.WHITE);
 
 			    // ファイルへ出力する
-			    //fos = new FileOutputStream(this.getClass().getSimpleName() + ".jpg");
-			    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-			    ChartUtilities.writeChartAsPNG(byteArrayOutputStream, chart, 600, 400);
-			    String base64string = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
-			    String dataUri = "data:image/png;base64," + base64string;
-			    model.addAttribute("dataUri", dataUri); 
+			    fos = new FileOutputStream(this.getClass().getSimpleName() + ".jpg");			   
+			   // ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+			    ChartUtilities.writeChartAsJPEG(fos, chart, 600, 400);
+			   // String base64string = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
+			    String dataUri = "data:image/.jpg";
+			    model.addAttribute("dataUri", dataUri);
+			   
+			    return "main";
 			    
 			} catch (IOException e) {
 			    // エラー処理
-			}     
-			
-				return "main";
+			}  
 				
 		}
 		

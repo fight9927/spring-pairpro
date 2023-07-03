@@ -16,12 +16,15 @@
 		
 		<table class="account" border="1">
 				<tr>
-					<th>お名前</th>
+					<th>氏名</th>
 					<td>
 						<th:blovk>
 							<span style="color: red;" class="m">[[${message1}]]</span><br>
 						</th:blovk>
-						<input type="text" name="name"  class="text1" placeholder="(例)山田太郎" th:value="${name}" required>
+						姓
+						<input type="text" name="lastName"  class="text1" placeholder="(例)山田" th:value="${lastName}" required>
+						名
+						<input type="text" name="firstName"  class="text1" placeholder="(例)太郎" th:value="${firstName}" required>
 					</td>
 				</tr>
 				<tr>

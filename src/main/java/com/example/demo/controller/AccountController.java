@@ -33,7 +33,8 @@ public class AccountController {
 	}
 	@PostMapping("/account")
 	public String store(
-			@RequestParam(value = "name", defaultValue = "") String name,
+			@RequestParam(value = "firstName", defaultValue = "") String firstName,
+			@RequestParam(value = "lastName", defaultValue = "") String lastName,
 			@RequestParam(value = "tel", defaultValue = "") String tel,
 			@RequestParam(value = "email", defaultValue = "") String email,
 			@RequestParam(value = "gender") String gender,
@@ -57,9 +58,19 @@ public class AccountController {
 		//String[] messages = {message1, message2, message3, message4, message5, message6};
 		
 		//名前が正しく入力されているか判定
-		for (int i = 0; i < name.length(); i++) {
+		for (int i = 0; i < firstName.length(); i++) {
 			
-			if (Character.isLetter(name.charAt(i))) {
+			if (Character.isLetter(firstName.charAt(i))) {
+				continue;
+			} else {
+				res = false;
+				break;
+			}
+		}
+		
+		for (int i = 0; i < lastName.length(); i++) {
+			
+			if (Character.isLetter(lastName.charAt(i))) {
 				continue;
 			} else {
 				res = false;
@@ -77,7 +88,7 @@ public class AccountController {
 		
 		if (!(p1.matcher(tel).find())) {
 			
-			message2 = "正しく入力して下さい";
+			message2 = "正しい携帯番号ではありません";
 		}
 		
 		//メールが正しく入力されているか判定(****@**.com)
@@ -117,7 +128,8 @@ public class AccountController {
 			model.addAttribute("message5", message5);
 			model.addAttribute("message6", message6);
 			
-			model.addAttribute("name", name);
+			model.addAttribute("firstName", firstName);
+			model.addAttribute("lastName", lastName);
 			model.addAttribute("tel", tel);
 			model.addAttribute("email", email);
 			model.addAttribute("ageYear", ageYear);
@@ -129,7 +141,7 @@ public class AccountController {
 			return "accountForm";
 		}
 		
-		User user = new User(name, tel, email, gender, ageYear + ageMonth + ageDay, password1);
+		User user = new User(firstName + lastName, tel, email, gender, ageYear + ageMonth + ageDay, password1);
 		
 		userRepository.save(user);
 
