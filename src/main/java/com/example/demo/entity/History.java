@@ -23,6 +23,7 @@ public class History {
 	private Integer userId;
 	
 	private String name;
+	private Integer kcal;
 	private Integer carbohydrates;
 	private Integer protein;
 	private Integer lipid;
@@ -35,9 +36,10 @@ public class History {
 	}
 	
 	//ヒストリー登録	
-	public History(Integer userId, String name,Integer carbohydrates,Integer protein, Integer lipid, Integer vitamin,Integer mineral, LocalDate day) {
+	public History(Integer userId, String name, Integer kcal, Integer carbohydrates, Integer protein, Integer lipid, Integer vitamin, Integer mineral, LocalDate day) {
 	this.userId = userId;
 	this.name = name;	
+	this.kcal = kcal;
 	this.carbohydrates = carbohydrates;
 	this.protein = protein;
 	this.lipid = lipid;

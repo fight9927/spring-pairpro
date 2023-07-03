@@ -56,7 +56,7 @@ public class ChoiceController {
 			Food food = foodRepository.findById(foodId).get();
 			Integer userId = account.getId();
 			
-			History history = new History(userId, food.getName(), food.getCarbohydrates(),food.getProtein(),food.getLipid(),food.getVitamin(),food.getMineral(), LocalDate.now());
+			History history = new History(userId, food.getName(), food.getKcal(), food.getCarbohydrates(),food.getProtein(),food.getLipid(),food.getVitamin(),food.getMineral(), LocalDate.now());
 			
 			historyRepository.save(history);
 

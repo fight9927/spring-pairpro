@@ -23,6 +23,7 @@ public class Food {
 	private Integer categoryId;
 	
 	private String name;
+	private Integer kcal;
 	private Integer carbohydrates;
 	private Integer protein;
 	private Integer lipid;
@@ -34,9 +35,10 @@ public class Food {
 			
 		}
 	//コンストラクタ（登録用）
-		public Food(Integer categoryId, String name, Integer carbohydrates,Integer protein,Integer lipid, Integer vitamin,Integer mineral) {
+		public Food(Integer categoryId, String name, Integer kcal, Integer carbohydrates,Integer protein,Integer lipid, Integer vitamin,Integer mineral) {
 			this.categoryId = categoryId;
-			this.name = name;			
+			this.name = name;
+			this.kcal = kcal;
 			this.carbohydrates = carbohydrates;
 			this.protein = protein;
 			this.lipid = lipid;

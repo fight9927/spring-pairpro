@@ -1,22 +1,22 @@
 package com.example.demo.controller;
 
-import java.awt.Color;
-import java.io.FileOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.StandardChartTheme;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -71,7 +71,7 @@ public class MainController {
 	public String login(
 	@RequestParam(value = "email", defaultValue = "") String email,
 	@RequestParam(value = "password", defaultValue = "") String password,
-	Model model) {
+	ModelMap modelMap, Model model) {
 		
 		if (email.equals("") && password.equals("")) {
 			model.addAttribute("message", "メールアドレスとパスワードを入力してください");
@@ -142,6 +142,7 @@ public class MainController {
 			model.addAttribute("histories", historiesList);
 			
 			//Historyの各栄養素を足し合わせる
+			int totalKcal = 0;
 			int totalCarbohydrates = 0;
 			int totalProtein = 0;
 			int totalLipid = 0;
@@ -151,6 +152,7 @@ public class MainController {
 			for (History history : historiesList) {
 				
 				//その日に摂取した各栄養素の合計値
+				    totalKcal += history.getKcal();
 					totalCarbohydrates += history.getCarbohydrates();
 					totalProtein += history.getProtein();
 					totalLipid += history.getLipid();
@@ -173,11 +175,130 @@ public class MainController {
 			
 			model.addAttribute("gap", gap);
 			
-			FileOutputStream fos = null;
+			//コメント欄
+			int tk = totalKcal;
+			int tc = totalCarbohydrates;
+			int tp = totalProtein;
+			int tl = totalLipid;
+			int tv = totalVitamin;
+			int tm = totalMineral;
 			
-			try {
-			    // 日本語が文字化けしないテーマ
-			    ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());
+			int ik = intake.getKcal();
+			int ic = intake.getCarbohydrates();
+			int ip = intake.getProtein();
+			int il = intake.getLipid();
+			int iv = intake.getVitamin();
+			int im = intake.getMineral();
+			
+			String comment1 = "";
+			String comment2 = "";
+			String comment3 = "";
+			String comment4 = "";
+			String comment5 = "";
+			String comment6 = "";
+			
+			if (3 * tk < ik) {
+				 comment1 = "食事量が足りません！";
+				 comment2 = "もっとたくさん食べましょう！！";
+				 comment3 = "メニューバーからおすすめの献立検索できるよ！！！";
+				 
+				 String[] comments = {comment1, comment2, comment3};
+				 model.addAttribute("comments", comments);
+				
+			} else if (3 * tk < 2 * ik) {
+				comment1 = "1日に必要な食事量の約半分は食べました！";
+				
+				if (tc / tk > 0.65) {
+					comment2 = "炭水化物";
+				} 
+				if (ip < 3 * tp && 3 * tp < 2 * ip) {
+					comment3 = "タンパク質";
+				}
+				if (tl / il > 0.3) {
+					comment4 = "脂質";
+				}
+				if (iv < 3 * tv && 3 * tv < 2 * iv) {
+					comment5 = "ビタミン";
+				}
+				if (im < 3 * tm && 3 * tm < 2 * im) {
+					comment6 = "ミネラル";
+				}
+				
+                model.addAttribute("comment1", comment1);
+				
+				if (!(comment3.equals("")) && !(comment5.equals("")) && !(comment6.equals(""))) {
+					model.addAttribute("comment2", comment3 + "、" + comment5 + "、" + comment6 + "はバランスよく摂取できています！！");
+				} else if (!(comment3.equals("")) && !(comment5.equals(""))) {
+					model.addAttribute("comment2", comment3 + "、" + comment5 + "はバランスよく摂取できています！！");
+				} else if (!(comment5.equals("")) && !(comment6.equals(""))) {
+					model.addAttribute("comment2", comment5 + "、" + comment6 + "はバランスよく摂取できています！！");
+				} else if (!(comment6.equals("")) && !(comment3.equals(""))) {
+					model.addAttribute("comment2", comment3 + "、" + comment6 + "はバランスよく摂取できています！！");
+				} else if (!(comment3.equals(""))) {
+					model.addAttribute("comment2", comment3 + "はバランスよく摂取できています！！");
+				} else if (!(comment5.equals(""))) {
+					model.addAttribute("comment2", comment5 + "はバランスよく摂取できています！！");
+				} else if (!(comment6.equals(""))) {
+					model.addAttribute("comment2", comment6 + "はバランスよく摂取できています！！");
+				}
+
+				
+				if (!(comment2.equals("")) && !(comment4.equals(""))) {
+					model.addAttribute("comment3", "ただ、、" + comment2 + "と" + comment4 + "は摂取しすぎです...");
+				} else if (!(comment2.equals(""))) {
+					model.addAttribute("comment3", "ただ、、" + comment2 + "は摂取しすぎです...");
+				} else if (!(comment4.equals(""))) {
+					model.addAttribute("comment3", "ただ、、" + comment4 + "は摂取しすぎです...");
+				}
+				
+			} else if (tk < ik) {
+                comment1 = "しっかりと食事をとっていますね！";
+				
+				if (tc / tk > 0.65) {
+					comment2 = "炭水化物";
+				} 
+				if (2 * ip < 3 * tp && tp < ip) {
+					comment3 = "タンパク質";
+				}
+				if (tl / il > 0.3) {
+					comment4 = "脂質";
+				}
+				if (2 * iv < 3 * tv && tv < iv) {
+					comment5 = "ビタミン";
+				}
+				if (2 * im < 3 * tm && tm < im) {
+					comment6 = "ミネラル";
+				}
+				
+				model.addAttribute("comment1", comment1);
+				
+				if (!(comment3.equals("")) && !(comment5.equals("")) && !(comment6.equals(""))) {
+					model.addAttribute("comment2", comment3 + "、" + comment5 + "、" + comment6 + "はバランスよく摂取できています！！");
+				} else if (!(comment3.equals("")) && !(comment5.equals(""))) {
+					model.addAttribute("comment2", comment3 + "、" + comment5 + "はバランスよく摂取できています！！");
+				} else if (!(comment5.equals("")) && !(comment6.equals(""))) {
+					model.addAttribute("comment2", comment5 + "、" + comment6 + "はバランスよく摂取できています！！");
+				} else if (!(comment6.equals("")) && !(comment3.equals(""))) {
+					model.addAttribute("comment2", comment3 + "、" + comment6 + "はバランスよく摂取できています！！");
+				} else if (!(comment3.equals(""))) {
+					model.addAttribute("comment2", comment3 + "はバランスよく摂取できています！！");
+				} else if (!(comment5.equals(""))) {
+					model.addAttribute("comment2", comment5 + "はバランスよく摂取できています！！");
+				} else if (!(comment6.equals(""))) {
+					model.addAttribute("comment2", comment6 + "はバランスよく摂取できています！！");
+				}
+
+				
+				if (!(comment2.equals("")) && !(comment4.equals(""))) {
+					model.addAttribute("comment3", "ただ、、" + comment2 + "と" + comment4 + "は摂取しすぎです...");
+				} else if (!(comment2.equals(""))) {
+					model.addAttribute("comment3", "ただ、、" + comment2 + "は摂取しすぎです...");
+				} else if (!(comment4.equals(""))) {
+					model.addAttribute("comment3", "ただ、、" + comment4 + "は摂取しすぎです...");
+				}
+				
+			}
+			
 			    
 			    // グラフデータを設定する
 			    DefaultCategoryDataset dataset = new DefaultCategoryDataset();
@@ -196,24 +317,18 @@ public class MainController {
 			    // グラフを生成する
 			    JFreeChart chart = ChartFactory.createBarChart("", "栄養素", "摂取量割合(%)", dataset,PlotOrientation.VERTICAL, true, false, false);
 			    
-			    // 背景色を設定
-			    chart.setBackgroundPaint(Color.WHITE);
-
-			    // ファイルへ出力する
-			    fos = new FileOutputStream(this.getClass().getSimpleName() + ".jpg");			   
-			   // ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-			    ChartUtilities.writeChartAsJPEG(fos, chart, 600, 400);
-			   // String base64string = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
-			    String dataUri = "data:image/.jpg";
-			    model.addAttribute("dataUri", dataUri);
-			   
+			    try {
+		            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(); // 画像の出力先
+		            ChartUtilities.writeChartAsPNG(byteArrayOutputStream, chart, 600, 400); // チャートをPNG画像として出力
+		            String base64string = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray()); // 画像をBase64でエンコード
+		            String dataUri = "data:image/png;base64," + base64string; // data URIの文字列を作成
+		            modelMap.addAttribute("dataUri", dataUri);
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }
 			    return "main";
 			    
-			} catch (IOException e) {
-			    // エラー処理
-			}  
-				
-		}
+			}   
 		
        	model.addAttribute("message", "登録情報と異なります");
 		

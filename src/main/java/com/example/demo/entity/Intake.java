@@ -16,6 +16,7 @@ public class Intake {
 	
 	private String range;
 	private String gender;
+	private Integer kcal;
 	private Integer carbohydrates;
 	private Integer protein;
 	private Integer lipid;
@@ -26,11 +27,12 @@ public class Intake {
 		
 	}
 	
-	public Intake(Integer id, String range, String gender, Integer carbohydrates, Integer protein, Integer lipid,
+	public Intake(Integer id, String range, String gender, Integer kcal, Integer carbohydrates, Integer protein, Integer lipid,
 			Integer vitamin, Integer mineral) {
 		this.id = id;
 		this.range = range;
 		this.gender = gender;
+		this.kcal = kcal;
 		this.carbohydrates = carbohydrates;
 		this.protein = protein;
 		this.lipid = lipid;
