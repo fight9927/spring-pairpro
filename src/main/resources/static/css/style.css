@@ -10,9 +10,10 @@ header, nav{
   background: #F2F3F4;
 }
 footer{
+	font-size: 25px;
 	color: #F2F3F4;
 	background-color: #1F1E26;
-	height: 50px;
+	height: 200px;
 	}
 /* ヘッダー、ナビゲーション内リンク */
 header a, nav a {
@@ -42,7 +43,7 @@ table {
 	margin: 0 auto;
 	background-color:#F2F3F4;
     min-width: 800px;
-    	width: 70%;
+    width: 70%;
 }
 /* 表見出しセル */
 table th {
@@ -112,7 +113,7 @@ button:hover {
 	overflow-y: scroll; 
 	height: 400px;
 	margin-top: 30px;
-	margin-left:70px;
+	margin-left:30px;
 	padding: 0px;
 }
 .eiyou1{
@@ -121,6 +122,13 @@ button:hover {
 .eiyou2{
 	width: 40%;
 	margin-left: 70px;
+	margin-bottom: 30px;
+}
+.daimei{
+	height: 70px;
+	font-size: 30px;
+	background-color: #4A4952;
+
 }
   /* メニューバー*/
 .menu-btn {
