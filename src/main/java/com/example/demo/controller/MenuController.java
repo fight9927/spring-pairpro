@@ -123,12 +123,13 @@ public class MenuController {
 		//メニュー登録
 		@PostMapping("/menu/add")
 		public String store(
-				@RequestParam(value = "name", defaultValue = "") String name,
-				@RequestParam(value = "carbohydrates", defaultValue = "") String carbohydrates,
-				@RequestParam(value = "protein", defaultValue = "") String protein,
-				@RequestParam(value = "lipid", defaultValue = "")  String lipid,
-				@RequestParam(value = "vitamin", defaultValue = "") String vitamin,
-				@RequestParam(value = "mineral", defaultValue = "") String mineral,
+				@RequestParam(value = "name") String name,
+				@RequestParam(value = "kcal") String kcal,
+				@RequestParam(value = "carbohydrates") String carbohydrates,
+				@RequestParam(value = "protein") String protein,
+				@RequestParam(value = "lipid")  String lipid,
+				@RequestParam(value = "vitamin") String vitamin,
+				@RequestParam(value = "mineral") String mineral,
 				Model model) {
 			 
 			boolean res = true;
@@ -154,6 +155,11 @@ public class MenuController {
 			//名前が正しく入力されているか判定
 			String pattern = "^[0-9]$";
 			Pattern p1 = Pattern.compile(pattern);
+			
+            if (!(p1.matcher(kcal).find())) {
+				
+				message2 = "栄養素は数字のみで入力してください";
+			}
 			
 			if (!(p1.matcher(carbohydrates).find())) {
 				
@@ -185,6 +191,7 @@ public class MenuController {
             	model.addAttribute("message1", message1);
             	model.addAttribute("message2", message2);
             	model.addAttribute("name", name);
+            	model.addAttribute("kcal", kcal);
             	model.addAttribute("carbohydrates", carbohydrates);
             	model.addAttribute("protein", protein);
             	model.addAttribute("lipid", lipid);
@@ -194,7 +201,7 @@ public class MenuController {
             	return "menu";
             }
 
-			Food food = new Food(4, name, Integer.parseInt(carbohydrates), Integer.parseInt(protein), Integer.parseInt(lipid), Integer.parseInt(vitamin), Integer.parseInt(mineral));
+			Food food = new Food(4, name, Integer.parseInt(kcal), Integer.parseInt(carbohydrates), Integer.parseInt(protein), Integer.parseInt(lipid), Integer.parseInt(vitamin), Integer.parseInt(mineral));
 			
 			 foodRepository.save(food);
 

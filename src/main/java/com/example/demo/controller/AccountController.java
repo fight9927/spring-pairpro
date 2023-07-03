@@ -33,16 +33,16 @@ public class AccountController {
 	}
 	@PostMapping("/account")
 	public String store(
-			@RequestParam(value = "firstName", defaultValue = "") String firstName,
-			@RequestParam(value = "lastName", defaultValue = "") String lastName,
-			@RequestParam(value = "tel", defaultValue = "") String tel,
-			@RequestParam(value = "email", defaultValue = "") String email,
+			@RequestParam(value = "firstName") String firstName,
+			@RequestParam(value = "lastName") String lastName,
+			@RequestParam(value = "tel") String tel,
+			@RequestParam(value = "email") String email,
 			@RequestParam(value = "gender") String gender,
 			@RequestParam(value = "ageYear") Integer ageYear,
 			@RequestParam(value = "ageMonth") Integer ageMonth,
 			@RequestParam(value = "ageDay") Integer ageDay,
-			@RequestParam(value = "password1", defaultValue = "") String password1,
-			@RequestParam(value = "password2", defaultValue = "") String password2,
+			@RequestParam(value = "password1") String password1,
+			@RequestParam(value = "password2") String password2,
 			Model model) {
 		
 		//正しく入力されているのかを確認
