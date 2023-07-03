@@ -30,12 +30,6 @@ header h1 {
   	font-size: 20pt;
 	text-align: left;		
   }
-/* メイン */
-main {
-	background-color: #FFFFFF;
-	min-height: 50px;
-	padding: 20px;
-}
 /* 表線 */
 table, th, td {
 	border-collapse: collapse;
@@ -107,11 +101,27 @@ button:hover {
 	font-size: 30px;
   	 height: 10px;
 	width: 100%;
-	padding: 40px;
+	padding: 20px;
 	margin: 10ox;
   	color: #454545;
-  }
-  
+	background-color: #FFFFFF;
+	min-height: 50px;
+}
+.roll {
+	width: 43%;
+	overflow-y: scroll; 
+	height: 400px;
+	margin-top: 30px;
+	margin-left:70px;
+	padding: 0px;
+}
+.eiyou1{
+	margin-right: 0px; 
+}
+.eiyou2{
+	width: 40%;
+	margin-left: 70px;
+}
   /* メニューバー*/
 .menu-btn {
     position: fixed;
@@ -281,24 +291,6 @@ button:hover {
 .text1:focus {
     outline: 0;
     box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
-}
-
-/* メイン画面*/
-.roll {
-	width: 43%;
-	overflow-y: scroll; 
-	height: 400px;
-	margin-top: 30px;
-	padding: 0px;
-}
-.eiyou1{
-	width: 45%;
-	margin-left:50px;
-	margin-right: 0px; 
-}
-.eiyou2{
-	width: 43%;
-	margin-left: 50px;
 }
 
 /* おすすめ検索*/
