@@ -4,6 +4,9 @@ INSERT INTO categories(name) VALUES('野菜各種');
 INSERT INTO categories(name) VALUES('社食');
 INSERT INTO categories(name) VALUES('Myメニュー');
 
+--仮ユーザ
+INSERT INTO users(name,gender,age,tel,email,password) VALUES('A', '男性',19990101,'07011112222','A','A');
+
 --必要な摂取量
 --vitamin(μg), mineral(mg)で計算、Na = 5000mgと仮定
 INSERT INTO intake(range, gender, carbohydrates, protein, lipid, vitamin, mineral) VALUES('18～29','男性',331,65,74,7009,9640);
