@@ -109,16 +109,17 @@ button:hover {
 	font-weight: bold;
 }
 .roll {
-	width: 920px;
+	width: 910px;
 	overflow-y: scroll; 
 	height: 400px;
 	margin-left: 40px;
 	margin-top: 30px;
 	margin-bottom: 20px;
 }
-.eiyou1{
+.roll eiyou1{
 	width: 900px;
 	margin-right: 0px; 
+	
 }
 .eiyou2{
 	width: 900px;

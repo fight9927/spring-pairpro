@@ -18,7 +18,7 @@
 		th:href="|/choice?categoryId=${category.id}|">
 		[[${category.name}]]</a>
 	</div>
-	
+		 <p class="eiyou1"><img th:src="${dataUri}"></p>
 	<div class="roll">
 	<table border="1" class="eiyou1" >
 		<tr>
@@ -50,7 +50,6 @@
 		</tr>
 	</table>
 	</div>
-	
 	<br>
 	<table border="1" class="eiyou2">
 		<tr>
@@ -82,7 +81,6 @@
 			<span th:text="${comment3}"></span>
 		</th:block>
 	</span>
-    <p><img th:src="${dataUri}"></p>
 	</div>
 </div>
 	<footer th:replace="footer"></footer>
