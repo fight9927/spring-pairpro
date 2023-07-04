@@ -8,9 +8,12 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
+import org.jfree.chart.ChartColor;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.StandardChartTheme;
+import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -197,6 +200,7 @@ public class MainController {
 			String comment5 = "";
 			String comment6 = "";
 			
+			//目標摂取量の3割以下の場合のコメント
 			if (3 * tk < ik) {
 				 comment1 = "食事量が足りません！";
 				 comment2 = "もっとたくさん食べましょう！！";
@@ -205,6 +209,7 @@ public class MainController {
 				 String[] comments = {comment1, comment2, comment3};
 				 model.addAttribute("comments", comments);
 				
+				 //目標摂取量の3割から6割の場合のコメント
 			} else if (3 * tk < 2 * ik) {
 				comment1 = "1日に必要な食事量の約半分は食べました！";
 				
@@ -251,6 +256,7 @@ public class MainController {
 					model.addAttribute("comment3", "ただ、、" + comment4 + "は摂取しすぎです...");
 				}
 				
+				//目標摂取量の6割以上の場合のコメント
 			} else if (tk < ik) {
                 comment1 = "しっかりと食事をとっていますね！";
 				
@@ -300,40 +306,54 @@ public class MainController {
 			}
 			
 			    
-			    // グラフデータを設定する
-			    DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-			    
-			    //dataset.addValue(100, "炭水化物", "炭水化物(目標)");
-			    dataset.addValue((totalCarbohydrates / intake.getCarbohydrates()) * 100, "炭水化物", "炭水化物");
-			    //dataset.addValue(100, "プロテイン", "プロテイン(目標)");
-			    dataset.addValue((totalProtein / intake.getProtein()) * 100, "プロテイン", "プロテイン");
-			    //dataset.addValue(100, "脂質", "脂質(目標)");
-			    dataset.addValue((totalLipid / intake.getLipid()) * 100, "脂質", "脂質");
-			    //dataset.addValue(100, "ビタミン", "ビタミン(目標)");
-			    dataset.addValue((totalVitamin / intake.getVitamin()) * 100, "ビタミン", "ビタミン");
-			    //dataset.addValue(100, "ミネラル", "ミネラル(目標)");
-			    dataset.addValue((totalMineral / intake.getMineral()) * 100, "ミネラル", "ミネラル");
-			    
-			    // グラフを生成する
-			    JFreeChart chart = ChartFactory.createBarChart("", "栄養素", "摂取量割合(%)", dataset,PlotOrientation.VERTICAL, true, false, false);
-			    
-			    try {
-		            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(); // 画像の出力先
-		            ChartUtilities.writeChartAsPNG(byteArrayOutputStream, chart, 600, 400); // チャートをPNG画像として出力
-		            String base64string = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray()); // 画像をBase64でエンコード
-		            String dataUri = "data:image/png;base64," + base64string; // data URIの文字列を作成
-		            modelMap.addAttribute("dataUri", dataUri);
-		        } catch (IOException e) {
-		            e.printStackTrace();
-		        }
-			    return "main";
-			    
-			}   
+			    // 摂取した栄養素値グラフを標示する
+			ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());
+	        // データセットを作成
+	        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+	        
+	        // dataをデータセットに追加
+		    dataset.addValue(tc * 100 / ic, "炭水化物", "炭水化物");
+		    dataset.addValue(tp * 100 / ip, "プロテイン", "プロテイン");
+		    dataset.addValue(tl * 100 / il, "脂質", "脂質");
+		    dataset.addValue(tv * 100 / iv, "ビタミン", "ビタミン");
+		    dataset.addValue(tm * 100 / im, "ミネラル", "ミネラル");
+	        
+	        // チャートを作成
+	        JFreeChart chart = ChartFactory.createBarChart(
+	        		"",
+	        		"栄養素",
+	        		"摂取量割合(%)",
+	        		dataset,
+	        		PlotOrientation.VERTICAL,
+	                true,
+	                false,
+	                false
+	        );
+	        
+	        //背景色の設定
+	        chart.setBackgroundPaint(ChartColor.white);
+	        
+	        //縦軸の設定
+	       // NumberAxis numberAxis = (NumberAxis)Plot.get
+	       NumberAxis numberAxis = new NumberAxis();
+	       numberAxis.setLowerBound(0.0);
+	       numberAxis.setUpperBound(120.0);
+
+	        try {
+	            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(); // 画像の出力先
+	            //ChartUtils.writeChartAsPNG(byteArrayOutputStream, chart, 600, 400); // チャートをPNG画像として出力
+	            ChartUtilities.writeChartAsPNG(byteArrayOutputStream, chart, 600, 400); // チャートをPNG画像として出力
+	            String base64string = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray()); // 画像をBase64でエンコード
+	            String dataUri = "data:image/png;base64," + base64string; // data URIの文字列を作成
+	            modelMap.addAttribute("dataUri", dataUri);
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	        return "main";
+	    }  
 		
        	model.addAttribute("message", "登録情報と異なります");
 		
 		return "login";
 	}
-	
-	
 }
