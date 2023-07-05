@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>会員登録</title>
+<link rel="stylesheet" type="text/css" href="/css/style1.css">
+</head>
+<body class="account-all">
+
+	<div>
+	<h1 class="register-title">NutrientsC Site</h1>
+	</div>
+	
+	<main>
+		<h1>お客様情報入力欄</h1>
+		<form action="/account/edit" method="post">
+		
+		<table class="account" border="1">
+				<tr>
+					<th>氏名</th>
+					<td>
+						[[${user.lastName}]] [[${user.firstName}]]
+					</td>
+				</tr>
+				<tr>
+					<th>携帯電話番号
+					</th>
+					<td>
+						<th:blovk>
+							<span style="color: red;" class="m">[[${message2}]]</span><br>
+						</th:blovk>
+						<input type="text" name="tel"  class="text1" th:value="${user.tel}" required>
+					</td>
+				</tr>
+				
+				<tr><th>e-mail</th>
+					<td>
+						<th:blovk>
+							<span style="color: red;" class="m">[[${message3}]]</span><br>
+						</th:blovk>
+						<input type="text" name="email"  class="text1" th:value="${user.email}" required>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						旧パスワード
+					</th>
+					<td>
+						<input type="password" name="password" class="text1" th:value="${password}" required>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						新規パスワード<br>
+						<span class="must">※8~12字の半角英数字</span>
+					</th>
+					<td>
+						<th:blovk>
+							<span style="color: red;">[[${message5}]]</span>	<br>
+						</th:blovk>
+						<input type="password" name="password1" class="text1" th:value="${password1}" required>
+					</td>
+				</tr>
+				
+				<tr>
+					<th>新規パスワード（確認用）</th>
+					<td>
+						<th:blovk>
+							<span style="color: red;">[[${message6}]]</span><br>
+						</th:blovk>
+						<input type="password" name="password2" class="text1" th:value="${password2}" required>
+					</td>
+				</tr>
+			</table>
+			
+			<button class="account-register">登録</button>
+			
+		</form>
+		<form action="/" method="get">
+			
+			   <button class="account-register">戻る</button>
+		
+		</form>
+	  </div>
+	</main>
+	<footer th:replace="footer"></footer>
+</body>
+</html>

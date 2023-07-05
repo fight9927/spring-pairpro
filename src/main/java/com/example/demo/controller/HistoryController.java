@@ -16,7 +16,7 @@ import com.example.demo.model.Account;
 import com.example.demo.repository.HistoryRepository;
 
 @Controller
-public class HistroyController {
+public class HistoryController {
 	
 	@Autowired
 	HistoryRepository historyRepository;

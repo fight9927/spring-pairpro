@@ -4,29 +4,36 @@
 <meta charset="UTF-8">
 <title>ログイン</title>
 </head>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
-<body>
-	
-	<header>
-	<h1>健康管理アプリ</h1>
-	</header>
+<link rel="stylesheet" type="text/css" href="/css/style1.css">
+<body class="login-body">
+	 <br>
+	 <br>
+　　 <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+<div class="login-area">
+  <h2 class="login-title">NutrientsC Site</h2>	
 	<th:block>
-		<span style="color: red;">
+		<span style="color: red;" class="message-error">
 			[[${message}]]
 			<br>
 		</span>
 	</th:block>
-	
-	<form action="/login" method="post">
-		<input type="text" name="email" placeholder="メールアドレス" th:value="${email}">
-		<br>
-		<input type="password" name="password" placeholder="パスワード" th:value="${password}">
-		<br>
-		<button class="btn-gradient-radius">ログイン</button>
+	<form action="/login" method="post" class="tipe-info">
+		<div>
+		  <input type="text" name="email" placeholder="メールアドレス" th:value="${email}" class="tipe-email">
+		  <br>
+		  <input type="password" name="password" placeholder="パスワード" th:value="${password}" class="tipe-password">
+		  <br>
+		</div>
+	  <button class="btn-gradient-radius">ログイン</button>
 	</form>
 	<form action="/account" method="get">
-		<input type="submit" value="会員登録はこちら">
+		<button class="user-register">新規登録</button>
 	</form>
-	<footer th:replace="footer"></footer>
+</div>
 </body>
 </html>
