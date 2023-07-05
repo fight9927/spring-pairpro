@@ -8,11 +8,14 @@
 <body>	
 		<header th:replace="header"></header>
 	<main>
-		
-		<form action="/choice/search" method="get" class="text1">
+		<div class="kennsaku">
+		<form action="/choice/search" method="get">
 			<input type="hidden" name="categoryId" th:value="${categoryId}">
-			<input type="text" name="keyword" th:value="${keyword}"><button>検索</button>
+			<input type="text" name="keyword" th:value="${keyword}" placeholder="キーワードを入力"  class="kennsaku1">
+			<button>検索</button>
 		</form>
+		</div>
+</form>
 		
 		<table border="1">
 		<tr>

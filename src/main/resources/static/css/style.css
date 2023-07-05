@@ -178,6 +178,7 @@ margin-top: 40px;
 }
 /*コメント表示*/
 .message {
+	margin-left: 50px;
 	margin-top: 30px;
 	margin-right: 50px;
     position: relative;
@@ -368,4 +369,45 @@ margin-top: 40px;
 }
 .aaaa{
 	font-size: 20px;
+}
+.text3{
+	font-size: 20px;
+    height: 40px;
+	width: 200px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 1px #ccc inset;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align: center;
+}
+
+.text3:focus
+ {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+    width: 200px;
+}
+.account{
+	margin: -10px 300px 300px 0;
+	font-size: 20px;
+/*	height:700px;*/
+    margin: 0 auto;
+}
+.kennsaku{
+
+	text-align: center;
+	display: inline-flex;
+	margin: auto;
+	padding: 30px;
+}
+.kennsaku1{
+	margin-right: 20px;
+	font-size: 20px;
+	height: 35px;
+}
+.kennsaku2{
+	height: 30px;
 }
