@@ -321,6 +321,11 @@ public class MenuController {
 			
 			String message1 = "";
 			String message2 = "";
+			String message3 = "";
+			String message4 = "";
+			String message5 = "";
+			String message6 = "";
+			String message7 = "";
 			
 			//名前が正しく入力されているか判定
 			for (int i = 0; i < name.length(); i++) {
@@ -343,38 +348,45 @@ public class MenuController {
 			
             if (!(p1.matcher(kcal).find())) {
 				
-				message2 = "栄養素は数字のみで入力してください";
+				message2 = "数字のみで入力してください";
 			}
 			
 			if (!(p1.matcher(carbohydrates).find())) {
 				
-				message2 = "栄養素は数字のみで入力してください";
+				message3 = "数字のみで入力してください";
 			}
 			
             if (!(p1.matcher(protein).find())) {
  				
-				message2 = "栄養素は数字のみで入力してください";
+				message4 = "数字のみで入力してください";
 			}
             
             if (!(p1.matcher(lipid).find())) {
 				
-				message2 = "栄養素は数字のみで入力してください";
+				message5 = "数字のみで入力してください";
 			}
             
             if (!(p1.matcher(vitamin).find())) {
 				
-				message2 = "栄養素は数字のみで入力してください";
+				message6 = "数字のみで入力してください";
 			}
             
             if (!(p1.matcher(mineral).find())) {
 				
-				message2 = "栄養素は数字のみで入力してください";
+				message7 = "数字のみで入力してください";
 			}
             
-            if (!(message1 == "") || !(message2 == "")) {
+            if (!(message1 == "") || !(message2 == "") || !(message3 == "") ||
+            		!(message4 == "") || !(message5 == "") || !(message6 == "") || !(message7 == "")) {
             	
             	model.addAttribute("message1", message1);
             	model.addAttribute("message2", message2);
+            	model.addAttribute("message3", message3);
+            	model.addAttribute("message4", message4);
+            	model.addAttribute("message5", message5);
+            	model.addAttribute("message6", message6);
+            	model.addAttribute("message7", message7);
+            	
             	model.addAttribute("name", name);
             	model.addAttribute("kcal", kcal);
             	model.addAttribute("carbohydrates", carbohydrates);

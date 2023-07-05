@@ -7,45 +7,75 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 <body>	
 			<header th:replace="header"></header>
-			
-			<th:block>
-				<span style="color: red;">[[${message1}]]</span><br>
-				<span style="color: red;">[[${message2}]]</span><br>
-			</th:block>
 	<main>
 		<form action="/menu/add" method="post">
 		<table border="1" class="3">
 				<tr>
 					<th>料理名/野菜名</th>
-					<td><input type="text" name="name" th:value="${name}" required class="text3"></td>
+					<td>
+						<th:block>
+				           <span style="color: red;">[[${message1}]]</span><br>
+			            </th:block>
+						<input type="text" name="name" th:value="${name}" required class="text3">
+					</td>
 				</tr>
 				<tr>
 					<th>カロリー(kcal)</th>
-					<td><input type="text" name="kcal" th:value="${kcal}" required class="text3"></td>
+					<td>
+						<th:block>
+				           <span style="color: red;">[[${message2}]]</span><br>
+			            </th:block>
+						<input type="text" name="kcal" th:value="${kcal}" required class="text3">
+					</td>
 				</tr>
 				<tr>
 					<th>炭水化物(g)</th>
-					<td><input type="text" name="carbohydrates" th:value="${carbohydrates}" required class="text3"></td>
+					<td>
+						<th:block>
+				           <span style="color: red;">[[${message3}]]</span><br>
+			            </th:block>
+						<input type="text" name="carbohydrates" th:value="${carbohydrates}" required class="text3">
+					</td>
 				</tr>
 				
 				<tr>
 					<th>タンパク質(g)</th>
-					<td><input type="text" name="protein" th:value="${protein}" required class="text3"></td>
+					<td>
+						<th:block>
+				           <span style="color: red;">[[${message4}]]</span><br>
+			            </th:block>
+						<input type="text" name="protein" th:value="${protein}" required class="text3">
+					</td>
 				</tr>
 				
 				<tr>
 					<th>脂質(g)</th>
-					<td><input type="text" name="lipid" th:value="${lipid}" required class="text3"></td>
+					<td>
+						<th:block>
+				           <span style="color: red;">[[${message5}]]</span><br>
+			            </th:block>
+						<input type="text" name="lipid" th:value="${lipid}" required class="text3">
+					</td>
 				</tr>
 				
 				<tr>
 					<th>ビタミン(μg)</th>
-					<td><input type="text" name="vitamin" th:value="${vitamin}" required class="text3"></td>
+					<td>
+						<th:block>
+			           	   <span style="color: red;">[[${message6}]]</span><br>
+		           	    </th:block>
+						<input type="text" name="vitamin" th:value="${vitamin}" required class="text3">
+					</td>
 				</tr>
 				
 				<tr>
 					<th>ミネラル(mg)</th>
-					<td><input type="text" name="mineral" th:value="${mineral}" required class="text3"></td>
+					<td>
+						<th:block>
+				           <span style="color: red;">[[${message7}]]</span><br>
+			            </th:block>
+						<input type="text" name="mineral" th:value="${mineral}" required class="text3">
+					</td>
 				</tr>
 			</table>
 			<button class="tuika">メニュー追加登録</button>
