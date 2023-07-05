@@ -7,9 +7,12 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 <body>	
 			<header th:replace="header"></header>
+
+			<h1 class="my">Myメニュー追加登録</h1>
+
 	<main>
 		<form action="/menu/add" method="post">
-		<table border="1" class="3">
+		<table border="1" class="table3">
 				<tr>
 					<th>料理名/野菜名</th>
 					<td>
@@ -78,7 +81,7 @@
 					</td>
 				</tr>
 			</table>
-			<button class="tuika">メニュー追加登録</button>
+			<button class="tuika">メニュー登録</button>
 		</form>
 	</main>
 	<footer th:replace="footer"></footer>

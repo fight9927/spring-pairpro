@@ -259,7 +259,7 @@ public class MenuController {
         
         // dataをデータセットに追加
 	    dataset.addValue(tc * 100 / ic, "炭水化物", "炭水化物");
-	    dataset.addValue(tp * 100 / ip, "プロテイン", "プロテイン");
+	    dataset.addValue(tp * 100 / ip, "タンパク質", "タンパク質");
 	    dataset.addValue(tl * 100 / il, "脂質", "脂質");
 	    dataset.addValue(tv * 100 / iv, "ビタミン", "ビタミン");
 	    dataset.addValue(tm * 100 / im, "ミネラル", "ミネラル");
