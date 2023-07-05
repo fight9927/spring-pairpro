@@ -106,7 +106,6 @@ button:hover {
     max-width: 240px;
     padding: 10px 25px;
     color: #FFF;
-    transition: 0.3s ease-in-out;
     font-weight: 600;
     color:#4A4952 ;
     background: #FBCB3A;
@@ -116,19 +115,6 @@ button:hover {
     margin-left: 40px;
     margin-top: 10px;
     text-decoration:none;
-}
-.line2 a:after {
-    content: '';
-    width: 5px;
-    height: 5px;
-    border-top: 3px solid #FFF;
-    border-right: 3px solid #FFF;
-    transform: rotate(45deg) translateY(-50%);
-    position: absolute;
-    top: 46%;
-    right: 20px;
-    border-radius: 1px;
-    transition: 0.3s ease-in-out;
 }
 .line2 a:hover {
     transform: translateY(-2px);
@@ -179,11 +165,11 @@ margin-top: 40px;
 /*コメント表示*/
 .message {
 	margin-left: 50px;
-	margin-top: 30px;
+	margin-top: 20px;
 	margin-right: 50px;
     position: relative;
     text-align: center;
-    padding: 20px;
+  	  padding: 30px;
     font-size: 25px;
     border: solid 5px lawngreen;
     border-radius: 10px;
