@@ -42,9 +42,9 @@ public class AccountController {
 			@RequestParam(value = "tel") String tel,
 			@RequestParam(value = "email") String email,
 			@RequestParam(value = "gender") String gender,
-			@RequestParam(value = "ageYear") Integer ageYear,
-			@RequestParam(value = "ageMonth") Integer ageMonth,
-			@RequestParam(value = "ageDay") Integer ageDay,
+			@RequestParam(value = "birthyear") Integer birthyear,
+			@RequestParam(value = "birthmonth") Integer birthmonth,
+			@RequestParam(value = "birthday") Integer birthday,
 			@RequestParam(value = "password1") String password1,
 			@RequestParam(value = "password2") String password2,
 			Model model) {
@@ -104,7 +104,7 @@ public class AccountController {
 		}
 		
 		//年齢が正しく入力されているか判定
-		if (ageYear == 0 || ageMonth == 0 || ageDay == 0) {
+		if (birthyear == 0 || birthmonth == 0 || birthday == 0) {
 			message4 = "生年月日を選択してください";
 		}
 		
@@ -136,16 +136,16 @@ public class AccountController {
 			model.addAttribute("lastName", lastName);
 			model.addAttribute("tel", tel);
 			model.addAttribute("email", email);
-			model.addAttribute("ageYear", ageYear);
-			model.addAttribute("ageMonth", ageMonth);
-			model.addAttribute("ageDay", ageDay);
+			model.addAttribute("birthyear", birthyear);
+			model.addAttribute("birthmonth", birthmonth);
+			model.addAttribute("birthday", birthday);
 			model.addAttribute("password1", password1);
 			model.addAttribute("password2", password2);
 			
 			return "accountForm";
 		}
 		
-		User user = new User(lastName + firstName, tel, email, gender, ageYear + ageMonth + ageDay, password1);
+		User user = new User(lastName + firstName, tel, email, gender, birthyear, birthmonth, birthday, password1);
 		
 		userRepository.save(user);
 
@@ -160,7 +160,7 @@ public class AccountController {
 		return "editAccount";
 	}
 	
-	//PostMappingの上のほうで二パターン4
+	//登録情報変更
 	@PostMapping("/account/edit")
 	public String store(
 			@RequestParam(value = "tel") String tel,
@@ -233,7 +233,8 @@ public class AccountController {
 			return "editAccount";
 		}
 		
-		User editUser = new User(user.getId(), user.getName(), tel, email, user.getGender(), user.getAge(), password1);
+		User editUser = new User(user.getId(), user.getName(), tel, email, user.getGender(), 
+				user.getBirthyear(), user.getBirthmonth(), user.getBirthday(), password1);
 		
 		userRepository.save(editUser);
 

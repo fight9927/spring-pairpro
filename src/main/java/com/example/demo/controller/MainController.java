@@ -105,21 +105,24 @@ public class MainController {
 			
 			Intake intake = null;
 			
-			if (u.getAge() < 30 && u.getGender().equals("男性")) {
+			//今の西暦を取得
+			int year = LocalDate.now().getYear();
+			
+			if (year - u.getBirthyear() < 30 && u.getGender().equals("男性")) {
 				intake = intakeRepository.findById(1).get();
-			} else if (u.getAge() < 50 && u.getGender().equals("男性")) {
+			} else if (year - u.getBirthyear() < 50 && u.getGender().equals("男性")) {
 				intake = intakeRepository.findById(2).get();
-			} else if (u.getAge() < 65 && u.getGender().equals("男性")) {
+			} else if (year - u.getBirthyear() < 65 && u.getGender().equals("男性")) {
 				intake = intakeRepository.findById(3).get();
-			} else if (u.getAge() > 65 && u.getGender().equals("男性")) {
+			} else if (year - u.getBirthyear() > 65 && u.getGender().equals("男性")) {
 				intake = intakeRepository.findById(4).get();
-			} else if (u.getAge() < 30 && u.getGender().equals("女性")) {
+			} else if (year - u.getBirthyear() < 30 && u.getGender().equals("女性")) {
 				intake = intakeRepository.findById(5).get();
-			} else if (u.getAge() < 50 && u.getGender().equals("女性")) {
+			} else if (year - u.getBirthyear() < 50 && u.getGender().equals("女性")) {
 				intake = intakeRepository.findById(6).get();
-			} else if (u.getAge() < 65 && u.getGender().equals("女性")) {
+			} else if (year - u.getBirthyear() < 65 && u.getGender().equals("女性")) {
 				intake = intakeRepository.findById(7).get();
-			} else if (u.getAge() > 65 && u.getGender().equals("女性")) {
+			} else if (year - u.getBirthyear() > 65 && u.getGender().equals("女性")) {
 				intake = intakeRepository.findById(8).get();
 			}
 			//目安摂取量をセッション登録

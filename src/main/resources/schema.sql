@@ -33,7 +33,9 @@ CREATE TABLE users
 id SERIAL PRIMARY KEY,
 name TEXT,
 gender TEXT,
-age INTEGER,
+birthyear INTEGER,
+birthmonth INTEGER,
+birthday INTEGER,
 tel TEXT,
 email TEXT,
 password TEXT

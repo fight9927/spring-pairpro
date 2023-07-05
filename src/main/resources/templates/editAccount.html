@@ -5,21 +5,32 @@
 <title>会員登録</title>
 <link rel="stylesheet" type="text/css" href="/css/style1.css">
 </head>
-<body class="account-all">
+<body class="editaccount-all">
 
 	<div>
 	<h1 class="register-title">NutrientsC Site</h1>
 	</div>
 	
 	<main>
-		<h1>お客様情報入力欄</h1>
+		<h1>登録情報変更</h1>
 		<form action="/account/edit" method="post">
 		
 		<table class="account" border="1">
 				<tr>
 					<th>氏名</th>
 					<td>
-						[[${user.lastName}]] [[${user.firstName}]]
+						[[${user.name}]]
+					</td>
+				</tr>
+				<tr>
+					<th>性別</th>
+					<td>
+						[[${user.gender}]]
+					</td>
+				</tr>
+				<tr>
+					<th>生年月日</th>
+					<td th:text="${user.birthyear}+'年'+${user.birthmonth}+'月'+${user.birthday}+'日'">
 					</td>
 				</tr>
 				<tr>
@@ -58,7 +69,7 @@
 						<th:blovk>
 							<span style="color: red;">[[${message5}]]</span>	<br>
 						</th:blovk>
-						<input type="password" name="password1" class="text1" th:value="${password1}" required>
+						<input type="password" name="password1" class="text1" required>
 					</td>
 				</tr>
 				
@@ -76,7 +87,7 @@
 			<button class="account-register">登録</button>
 			
 		</form>
-		<form action="/" method="get">
+		<form action="/main" method="get">
 			
 			   <button class="account-register">戻る</button>
 		

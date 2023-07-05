@@ -5,7 +5,7 @@ INSERT INTO categories(name) VALUES('社食');
 INSERT INTO categories(name) VALUES('Myメニュー');
 
 --仮ユーザ
-INSERT INTO users(name,gender,age,tel,email,password) VALUES('A', '男性',19990101,'07011112222','A','A');
+INSERT INTO users(name,gender,birthyear,birthmonth,birthday,tel,email,password) VALUES('A', '男性',1999,01,01,'07011112222','A','A');
 
 --必要な摂取量
 --vitamin(μg), mineral(mg)で計算、Na = 5000mgと仮定

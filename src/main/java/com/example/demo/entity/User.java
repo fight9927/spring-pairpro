@@ -27,7 +27,9 @@ public class User {
 	
 	private String gender;
 	
-	private Integer age;
+	private Integer birthyear;
+	private Integer birthmonth;
+	private Integer birthday;
 	
 	private String password;
 	
@@ -35,26 +37,32 @@ public class User {
 	public User() {
 		
 	}
-	//コンストラクタ（登録用）
-		public User(String name, String tel, String email, String gender, Integer age, String password) {
-			this.name = name;
-			this.tel = tel;
-			this.email = email;
-			this.gender = gender;
-			this.age = age;
-			this.password = password;
-		}
-		
-	public User(Integer id, String name, String tel, String email, String gender, Integer age, String password) {
-		super();
+
+	public User(String name, String tel, String email, String gender, Integer birthyear, Integer birthmonth,
+			Integer birthday, String password) {
+		this.name = name;
+		this.tel = tel;
+		this.email = email;
+		this.gender = gender;
+		this.birthyear = birthyear;
+		this.birthmonth = birthmonth;
+		this.birthday = birthday;
+		this.password = password;
+	}
+
+	public User(Integer id, String name, String tel, String email, String gender, Integer birthyear, Integer birthmonth,
+			Integer birthday, String password) {
 		this.id = id;
 		this.name = name;
 		this.tel = tel;
 		this.email = email;
 		this.gender = gender;
-		this.age = age;
+		this.birthyear = birthyear;
+		this.birthmonth = birthmonth;
+		this.birthday = birthday;
 		this.password = password;
 	}
+	
 		
     
 }
