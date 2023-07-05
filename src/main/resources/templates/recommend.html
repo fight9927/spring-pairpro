@@ -13,41 +13,45 @@
 	
 	<form action="/recommend" method="post">
 		
-	<div class="recommend-choice">
-	<div class="kondate">
-	ジャンル<br>
-	<select name="genre" class="aaaa">
-		<option value="01">こだわらない</option>
-		<option value="02">和食</option>
-		<option value="03">洋食</option>
-		<option value="04">中華</option>
-	</select>
-	</div>
+	<table border="1" class="conndatechoice" >			
+	<tr>
+		<th>ジャンル</th>
+		<th>味付け</th>
+		<th>献立の種類</th>
+	</tr>
 	
-
-	<div class="kondate">
-	味付け<br>
-	<select name="type" class="aaaa">
-		<option value="11">こだわらない</option>
-		<option value="12">あっさり</option>
-		<option value="13">がっつり</option>
-	</select>
-	</div>
-
-	<div class="kondate">
-	献立の種類<br>
-	<select name="sort" class="aaaa">
-		<option value="21">カロリー低めの献立</option>
-		<option value="22">一人暮らしの献立</option>
-		<option value="23">麺料理の献立</option>
-		<option value="24">夏バテの時の献立</option>
-		<option value="25">春が旬の献立</option>
-		<option value="26">夏が旬の献立</option>
-		<option value="27">秋が旬の献立</option>
-		<option value="28">冬が旬の献立</option>
-	</select>
-	</div>
-	</div>
+	<tr>
+		<td>
+		<select name="genre" class="aaaa">
+			<option value="01">こだわらない</option>
+			<option value="02">和食</option>
+			<option value="03">洋食</option>
+			<option value="04">中華</option>
+		</select>
+		</td>
+		
+		<td>
+		<select name="type" class="aaaa">
+			<option value="11">こだわらない</option>
+			<option value="12">あっさり</option>
+			<option value="13">がっつり</option>
+		</select>
+		</td>
+		
+		<td>
+		<select name="sort" class="aaaa">
+			<option value="21">カロリー低めの献立</option>
+			<option value="22">一人暮らしの献立</option>
+			<option value="23">麺料理の献立</option>
+			<option value="24">夏バテの時の献立</option>
+			<option value="25">春が旬の献立</option>
+			<option value="26">夏が旬の献立</option>
+			<option value="27">秋が旬の献立</option>
+			<option value="28">冬が旬の献立</option>
+		</select>
+		</td>	
+	</tr>
+	</table>
 	
 	<input type="submit" value="献立検索" class="recommend">
 	</form>

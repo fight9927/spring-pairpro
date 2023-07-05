@@ -8,10 +8,14 @@
 <body>	
 			<header th:replace="header"></header>
 			
+			<h1 class="my">Myメニュー追加登録</h1>
+			
+			<div class="red">
 			<th:block>
 				<span style="color: red;">[[${message1}]]</span><br>
 				<span style="color: red;">[[${message2}]]</span><br>
 			</th:block>
+			</div>
 	<main>
 		<form action="/menu/add" method="post">
 		<table border="1" class="3">
@@ -48,7 +52,7 @@
 					<td><input type="text" name="mineral" th:value="${mineral}" required class="text3"></td>
 				</tr>
 			</table>
-			<button class="tuika">メニュー追加登録</button>
+			<button class="tuika">メニュー登録</button>
 		</form>
 	</main>
 	<footer th:replace="footer"></footer>
