@@ -44,4 +44,17 @@ public class User {
 			this.age = age;
 			this.password = password;
 		}
+		
+	public User(Integer id, String name, String tel, String email, String gender, Integer age, String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.tel = tel;
+		this.email = email;
+		this.gender = gender;
+		this.age = age;
+		this.password = password;
+	}
+		
+    
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.User;
+import com.example.demo.model.Account;
 import com.example.demo.repository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -25,6 +26,9 @@ public class AccountController {
 	
 	@Autowired
 	User user;
+	
+	@Autowired
+	Account account;
 	
 	//会員登録
 	@GetMapping("/account")
@@ -141,10 +145,98 @@ public class AccountController {
 			return "accountForm";
 		}
 		
-		User user = new User(firstName + lastName, tel, email, gender, ageYear + ageMonth + ageDay, password1);
+		User user = new User(lastName + firstName, tel, email, gender, ageYear + ageMonth + ageDay, password1);
 		
 		userRepository.save(user);
 
 		return "redirect:/";
+	}
+	
+	@GetMapping("/account/edit")
+	public String edit(Model model) {
+		User user = userRepository.findById(account.getId()).get();
+		model.addAttribute("user", user);
+		
+		return "editAccount";
+	}
+	
+	//PostMappingの上のほうで二パターン4
+	@PostMapping("/account/edit")
+	public String store(
+			@RequestParam(value = "tel") String tel,
+			@RequestParam(value = "email") String email,
+			@RequestParam(value = "password") String password,
+			@RequestParam(value = "password1") String password1,
+			@RequestParam(value = "password2") String password2,
+			Model model) {
+		
+		//ユーザ情報を確保
+		User user = userRepository.findById(account.getId()).get();
+		
+		//正しく入力されているのかを確認
+		boolean res = true;
+		
+		String message2 = "";
+		String message3 = "";
+		String message5 = "";
+		String message6 = "";
+		
+		//電話番号が数字で構成されているか判定
+		String pattern = "^0[789]0\\d{4}\\d{4}$";
+		Pattern p1 = Pattern.compile(pattern);
+		
+		if (!(p1.matcher(tel).find())) {
+			
+			message2 = "正しい携帯番号ではありません";
+		}
+		
+		//メールが正しく入力されているか判定(****@**.com)
+		Pattern p2 = Pattern.compile("^[a-zA-Z0-9_+-]+(.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\\.)+[a-zA-Z]{2,}$");
+		
+		if (!(p2.matcher(email).find())) {
+			
+			message3 = "正しいメールアドレスではありません";
+		}
+		
+		//パスワードが正しいか判定
+		if (user.getPassword().equals(password)) {
+			
+			if (password1.equals(password2)) {
+				
+				Pattern p5 = Pattern.compile("^[a-zA-Z0-9]{8,12}$");
+				
+				if (!(p5.matcher(password1).find())) {
+					
+					message5 = "8~12字の半角英数字で入力してください";
+				}
+			} else {
+				message6 = "確認用パスワードが異なります";
+			}
+		}
+		
+		//1つでもmessageがnullでない場合は登録画面に戻る
+		if (!(message2.equals("")) || !(message3.equals("")) || 
+				!(message5.equals("")) || !(message6.equals(""))) {
+			
+			model.addAttribute("message2", message2);
+			model.addAttribute("message3", message3);
+			model.addAttribute("message5", message5);
+			model.addAttribute("message6", message6);
+			
+			model.addAttribute("user", user);
+			model.addAttribute("tel", tel);
+			model.addAttribute("email", email);
+			model.addAttribute("password", password);
+			model.addAttribute("password1", password1);
+			model.addAttribute("password2", password2);
+			
+			return "editAccount";
+		}
+		
+		User editUser = new User(user.getId(), user.getName(), tel, email, user.getGender(), user.getAge(), password1);
+		
+		userRepository.save(editUser);
+
+		return "redirect:/main";
 	}
 }

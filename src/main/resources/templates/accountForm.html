@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>会員登録</title>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style1.css">
 </head>
-<body>
-	<header>
-	<h1>健康管理アプリ</h1>
-	</header>
+<body class="account-all">
+
+	<div>
+	<h1 class="register-title">NutrientsC Site</h1>
+	</div>
 	
 	<main>
-		<h3>お客様情報</h3>
+		<h1>お客様情報入力欄</h1>
 		<form action="/account" method="post">
 		
 		<table class="account" border="1">
@@ -22,14 +23,13 @@
 							<span style="color: red;" class="m">[[${message1}]]</span><br>
 						</th:blovk>
 						姓
-						<input type="text" name="lastName"  class="text1" placeholder="(例)山田" th:value="${lastName}" required>
+						<input type="text" name="lastName"  class="text2" placeholder="(例)山田" th:value="${lastName}" required>
 						名
-						<input type="text" name="firstName"  class="text1" placeholder="(例)太郎" th:value="${firstName}" required>
+						<input type="text" name="firstName"  class="text2" placeholder="(例)太郎" th:value="${firstName}" required>
 					</td>
 				</tr>
 				<tr>
-					<th>携帯電話番号<br>
-						※ハイフン(-)の入力は不要です
+					<th>携帯電話番号
 					</th>
 					<td>
 						<th:blovk>
@@ -62,7 +62,7 @@
 						<th:blovk>
 							<span style="color: red;" class="m">[[${message4}]]</span><br>
 						</th:blovk>
-						<select name="ageYear"  class="text1" th:value="ageYear">
+						<select name="ageYear"  class="text2" th:value="ageYear">
 							<Option value="0">ー</Option>
 							<Option value="1950">1950</Option>
 							<Option value="1951">1951</Option>
@@ -132,7 +132,7 @@
 							<Option value="2015">2015</Option>
 						</select>
 						年
-						<select name="ageMonth"  class="text1">
+						<select name="ageMonth"  class="text2">
 							<Option value="0">ー</Option>
 							<Option value="01">01</Option>
 							<Option value="02">02</Option>
@@ -148,7 +148,7 @@
 							<Option value="12">12</Option>
 						</select>
 						月
-						<select name="ageDay" class="text1">
+						<select name="ageDay" class="text2">
 							<Option value="0">ー</Option>
 							<Option value="01">01</Option>
 							<Option value="02">02</Option>
@@ -188,7 +188,10 @@
 				</tr>
 				
 				<tr>
-					<th>パスワード</th>
+					<th>
+						パスワード<br>
+						<span class="must">※8~12字の半角英数字</span>
+					</th>
 					<td>
 						<th:blovk>
 							<span style="color: red;">[[${message5}]]</span>	<br>
@@ -206,10 +209,17 @@
 						<input type="password" name="password2" class="text1" required>
 					</td>
 				</tr>
-				
 			</table>
-			<button>登録</button>
+			
+			<button class="account-register">登録</button>
+			
 		</form>
+		<form action="/" method="get">
+			
+			   <button class="account-register">戻る</button>
+		
+		</form>
+	  </div>
 	</main>
 	<footer th:replace="footer"></footer>
 </body>
