@@ -44,7 +44,7 @@ public class CheckLoginAspect {
 			// リダイレクト先を指定する
 			// パラメータを渡すことでログインControllerで
 			// 個別のメッセージをThymeleafに渡すことも可能
-			return "redirect://";
+			return "redirect://?error=notLoggedIn";
 		}
 		// Controller内のメソッドの実行
 		return jp.proceed();

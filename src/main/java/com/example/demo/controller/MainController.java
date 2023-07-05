@@ -63,8 +63,15 @@ public class MainController {
 	
 	//ログイン画面表示
 		@GetMapping("/")
-		public String index() {
+		public String index(
+				@RequestParam(name = "error", defaultValue = "") String error,
+				Model model) {
 			session.invalidate();
+			
+			// エラーパラメータのチェック
+			if (error.equals("notLoggedIn")) {
+				model.addAttribute("message", "ログインしてください");
+			}
 			
 			return "/login";
 		}
