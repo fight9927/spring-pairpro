@@ -9,13 +9,13 @@
 	
 	<header th:replace="header"></header>
 	
-	<h1>オススメの献立を検索</h1>
+	<h1 class="osusume">オススメの献立を検索</h1>
 	
 	<form action="/recommend" method="post">
 		
 	<div class="recommend-choice">
 	<div class="kondate">
-	食べたいジャンル<br><br>
+	食べたいジャンル<br>
 	<select name="genre" class="aaaa">
 		<option value="01">こだわらない</option>
 		<option value="02">和食</option>
@@ -24,17 +24,18 @@
 	</select>
 	</div>
 	
+
 	<div class="kondate">
-	食べたいもの<br><br>
+	食べたいもの<br>
 	<select name="type" class="aaaa">
 		<option value="11">こだわらない</option>
 		<option value="12">あっさり</option>
 		<option value="13">がっつり</option>
 	</select>
 	</div>
-	
+
 	<div class="kondate">
-	献立種類<br><br>
+	献立種類<br>
 	<select name="sort" class="aaaa">
 		<option value="21">カロリー低めの献立</option>
 		<option value="22">一人暮らしの献立</option>
@@ -47,6 +48,7 @@
 	</select>
 	</div>
 	</div>
+	
 	<input type="submit" value="献立検索" class="recommend">
 	</form>
 	

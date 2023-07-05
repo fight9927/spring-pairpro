@@ -95,43 +95,101 @@ button:hover {
 /* ホーム画面*/
 
 .line2 a {
-	 box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
-	background-color:#F2F3F4;
-	border:solid 1px #1F1E26;
-	border-radius: 30px;
-	text-decoration: none;
-	font-size: 25px;
-	padding: 20px; 
-	 height: 25px;
-	width: 250px;
-	 margin: 10px;
-	display:inline-block;
-	font-weight: bold;
+	width: 180px;
+	height: 40px;
+	font-size: 22px;
+    position: relative;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 240px;
+    padding: 10px 25px;
+    color: #FFF;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    color:#4A4952 ;
+    background: #FBCB3A;
+    filter: drop-shadow(0px 2px 4px #ccc);
+    border-radius: 3px;
+    border-radius: 50px;
+    margin-left: 40px;
+    margin-top: 10px;
+    text-decoration:none;
 }
+.line2 a:after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #FFF;
+    border-right: 3px solid #FFF;
+    transform: rotate(45deg) translateY(-50%);
+    position: absolute;
+    top: 46%;
+    right: 20px;
+    border-radius: 1px;
+    transition: 0.3s ease-in-out;
+}
+.line2 a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgb(0 0 0 / 15%), 0 0 5px rgb(0 0 0 / 10%);
+}
+	
 .roll {
-	width: 910px;
+	width: 820px;
+	padding: 0px;
 	overflow-y: scroll; 
-	height: 400px;
+	height: 450px;
 	margin-left: 40px;
-	margin-top: 30px;
+	margin-top: 60px;
 	margin-bottom: 20px;
 }
-.roll eiyou1{
-	width: 900px;
+.eiyou1{
+	width: 780px;
 	margin-right: 0px; 
-	
 }
 .eiyou2{
-	width: 900px;
+	width: 780px;
 	margin-left: 40px;
+	margin-top: 10px;
 	margin-bottom: 50px;
 }
 .daimei{
 	height: 70px;
 	font-size: 30px;
 	background-color: #4A4952;
-
 }
+.eiyou3{
+width: 40%;
+padding: 0px;
+margin-left: 70px;
+margin-right: 70px;
+margin-top: 40px;
+}
+.rollp{
+	display: flex;
+}
+.eiyou2message{
+	width: 100%;
+	height: 230px;
+	display: inline-flex;
+	text-align: center;
+	margin: 0;
+}
+/*コメント表示*/
+.message {
+	margin-top: 30px;
+	margin-right: 50px;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    font-size: 25px;
+    border: solid 5px lawngreen;
+    border-radius: 10px;
+    width: 750px;
+    height: 100px;
+  
+}
+
   /* メニューバー*/
 .menu-btn {
     position: fixed;
@@ -257,34 +315,6 @@ button:hover {
 #menu-btn-check:checked ~ .menu-content {
     left: 80%;/*メニューを画面内へ*/
 }
-
-/*コメント表示*/
-.message {
-	 height: 100px;
-    position: relative;
-    text-align: center;
-    margin: 0 auto;
-    padding: 0.5em 1em;
-    border: solid 5px #95ccff;
-    border-radius: 10px;
-    width: 70%;
-}
-.message .box-title {
-    position: absolute;
-    display: inline-block;
-    top: -13px;
-    left: 20px;
-    padding: 0 9px;
-    line-height: 1;
-    font-size: 30px;
-    background: #FFF;
-    color: #95ccff;
-    font-weight: bold;
-}
-.message p {
-    margin: 0; 
-    padding: 0;
-}
 /* 会員登録画面*/
 .text1{
 	font-size: 20px;
@@ -309,30 +339,32 @@ button:hover {
 .account th{
 	width: 30%;
 }
-account td{
+.account td{
 	width: 40%;
 }
 
 /* おすすめ検索*/
 .recommend-choice {
 	font-size:35px ;
-	height: 500px;
-	margin  : auto;
 }
 .kondate{
+	 border: solid 5px #333;
+	background-color: transparent;
+	padding-top: 100px;
+	padding-bottom: 50px;
+	 height: 300px;
+	width: 400px;
+	 margin-top: 30px;
+	 margin-bottom: 30px;
+	 margin: 50px;
 
-	padding: 40px; 
-	 height: 25px;
-	width: 300px;
-	 margin: 40px;
 	display:inline-block;
-}
-.aaaa{
-	font-size: 25px;
-	padding: 5px;
 }
 .recommend{
 	font-size: 25px;
+	margin-top: 40px;
 	margin-bottom: 20px;
 }
-
+.aaaa{
+	font-size: 20px;
+}

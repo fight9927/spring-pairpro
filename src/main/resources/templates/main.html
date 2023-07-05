@@ -8,17 +8,17 @@
 <style>
 	
 </style>
-<body>
+<divbody>
 		<header th:replace="header"></header>
 	<hr>
 	
 	<div class="line2">
-		<a href="/menu/add" >Myメニュー追加</a>
+		<a href="/menu/add" >メニュー追加</a>
 		<a th:each="category:${categories}"
 		th:href="|/choice?categoryId=${category.id}|">
 		[[${category.name}]]</a>
 	</div>
-		 <p class="eiyou1"><img th:src="${dataUri}"></p>
+	<div class="rollp">
 	<div class="roll">
 	<table border="1" class="eiyou1" >
 		<tr>
@@ -50,7 +50,10 @@
 		</tr>
 	</table>
 	</div>
-	<br>
+	 <p class="eiyou3"><img th:src="${dataUri}"></p>
+	 </div>
+	 
+	<div class="eiyou2message">
 	<table border="1" class="eiyou2">
 		<tr>
 			<th colspan="5" class="daimei">必要な栄養素</th>
@@ -81,6 +84,7 @@
 			<span th:text="${comment3}"></span>
 		</th:block>
 	</span>
+	</div>
 	</div>
 </div>
 	<footer th:replace="footer"></footer>
