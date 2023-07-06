@@ -23,10 +23,14 @@
 		</tr>
 		
 		<tr th:each="food:${foods}">
-			<td><a th:href="|/choice/regist?foodId=${food.id}|" style="padding-left: 10px;">[[${food.name}]]</a></td>
+			<td><a th:href="|/choice/regist?foodId=${food.id}|" th:text="${food.name}" style="padding-left: 10px;"　class="foodmenu2"></a></td>
 		</tr>
-		
-	</table>
+		</table>
+
+	<form action="/main" method="get">
+	   <button class="modoru1">戻る</button>
+	 </form>
+	
 	</main>
 	<footer th:replace="footer"></footer>
 </body>

@@ -62,7 +62,30 @@ INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitami
 INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'さばの塩焼き',500.0,10.1,18.0,7.3,8312.5,2124.8);
 INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'しょうが焼き(目玉焼き付き)',500.0,10.1,18.0,7.3,8312.5,2124.8);
 INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'ビーフカレー',500.0,10.1,18.0,7.3,8312.5,2124.8);
-
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'網焼き牛カルビ皿',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'さばの塩麴焼き',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'彩り野菜の焼き鳥丼',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'根菜とナスのごろっと野菜カレー',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'和風餡かけハンバーグ',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'さばの味噌煮',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'親子丼',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'バターチキンカレー',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'もち豚のしょうが焼き',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'さばの塩焼き',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'ロコモコ丼',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'ビーガンの１２種の野菜カレー',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'鶏の照り焼きスライス(目玉焼きのせ)',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'さばの生姜煮',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'牛丼(温玉付き)',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'キーマカレー',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'カレーハンバーグ',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'ハッシュドビーフ',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'柔らか鶏の照り焼き(目玉焼きのせ)',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'カルビ丼(温玉付き)',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'サラダボール',200.0,10.1,18.0,4.3,9312.5,4124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'たらこスパゲッティ',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'ナポリタン',500.0,10.1,18.0,7.3,8312.5,2124.8);
+INSERT INTO foods(category_id, name, kcal, carbohydrates, protein, lipid, vitamin, mineral) VALUES(3,'カルボナーラ',500.0,10.1,18.0,7.3,8312.5,2124.8);
 
 Insert into recommendation(genre, type, sort, name, carbohydrates, protein, lipid, vitamin, mineral) VALUES(01, 11, 21, 'ハマグリの酒蒸し', 50, 10, 5, 500, 700);
 Insert into recommendation(genre, type, sort, name, carbohydrates, protein, lipid, vitamin, mineral) VALUES(01, 11, 21, 'わかめとツナの炒めもの', 50, 10, 5, 500, 700);

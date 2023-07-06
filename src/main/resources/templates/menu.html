@@ -5,12 +5,11 @@
 <title>メニュー追加登録</title>
 </head>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
-<body>	
+<div>	
 			<header th:replace="header"></header>
-
-			<h1 class="my">Myメニュー追加登録</h1>
-
-	<main>
+	
+		<h1 class="my">Myメニュー追加登録</h1>
+	
 		<form action="/menu/add" method="post">
 		<table border="1" class="table3">
 				<tr>
@@ -81,8 +80,13 @@
 					</td>
 				</tr>
 			</table>
-			<button class="tuika">メニュー登録</button>
+			<div class="menumodoru">
+			<button class="tuika">登録</button>
 		</form>
+		<form action="/main" method="get">
+		   <button class="modoru1">戻る</button>
+		 </form>
+		 </div>
 	</main>
 	<footer th:replace="footer"></footer>
 </body>

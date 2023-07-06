@@ -415,10 +415,7 @@ margin-top: 40px;
 .kennsaku2{
 	height: 30px;
 }
-.tuika{
-	margin: 30px;
-	width: 200px;
-}
+
 .my{
 	padding-top: 20px;
 	padding-bottom: 10px;
@@ -436,4 +433,27 @@ margin-top: 40px;
 	}
 .conndatechoice aaaa{
 	height:30px ;
+}
+.foodmenu2{
+	text-decoration: none;
+}
+.tuika{
+	margin: auto;
+}
+.modoru{
+	margin:auto;
+		position: relative;
+}
+.menumodoru{
+	background-color: lawngreen;
+	padding-top: 30px;
+	padding-left: 50px;
+	text-align: center;
+	width: 100%;
+	display: inline-flex;
+	flex-direction: row-reverse;
+}
+.modoru1{
+	margin-top: 30px;
+	margin-right: 85%;
 }

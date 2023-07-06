@@ -439,4 +439,18 @@ account td{
 	font-size: 25px;
 	margin-bottom: 20px;
 }
-
+.tuika{
+	margin: auto;
+}
+.modoru{
+	margin:auto;
+		position: relative;
+}
+.menumodoru{
+	padding-top: 30px;
+	padding-left: 50px;
+	text-align: center;
+	width: 100%;
+	display: inline-flex;
+	flex-direction: row-reverse;
+}
