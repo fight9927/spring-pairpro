@@ -354,3 +354,9 @@ Insert into recommendation(genre, type, sort, name, carbohydrates, protein, lipi
 Insert into recommendation(genre, type, sort, name, carbohydrates, protein, lipid, vitamin, mineral,pic) VALUES(04, 13, 26, 'ごはん', 50, 10, 5, 500, 700, 'https://japaclip.com/files/rice-bowl.png');
 Insert into recommendation(genre, type, sort, name, carbohydrates, protein, lipid, vitamin, mineral,pic) VALUES(04, 13, 27, 'ごはん', 50, 10, 5, 500, 700, 'https://japaclip.com/files/rice-bowl.png');
 Insert into recommendation(genre, type, sort, name, carbohydrates, protein, lipid, vitamin, mineral,pic) VALUES(04, 13, 28, 'ごはん', 50, 10, 5, 500, 700, 'https://japaclip.com/files/rice-bowl.png');
+
+
+Insert into records(user_id,name, kcal, carbohydrates, protein, lipid, vitamin, mineral,day) VALUES(2,'筍ごはん', 0, 0, 0, 0, 0, 0,'2023-07-05');
+Insert into records(user_id,name, kcal, carbohydrates, protein, lipid, vitamin, mineral,day) VALUES(2,'肉団子スープ', 0, 0, 0, 0, 0, 0,'2023-07-05');
+Insert into records(user_id,name, kcal, carbohydrates, protein, lipid, vitamin, mineral,day) VALUES(2,'小エビのサラダ', 0, 0, 0, 0, 0, 0,'2023-07-05');
+Insert into records(user_id,name, kcal, carbohydrates, protein, lipid, vitamin, mineral,day) VALUES(2,'プリン', 0, 0, 0, 0, 0, 0,'2023-07-05');

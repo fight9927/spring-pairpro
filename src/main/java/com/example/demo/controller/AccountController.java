@@ -173,9 +173,9 @@ public class AccountController {
 		//ユーザ情報を確保
 		User user = userRepository.findById(account.getId()).get();
 		
-		//正しく入力されているのかを確認
-		boolean res = true;
-		
+//		//正しく入力されているのかを確認
+//		boolean res = true;
+//		
 		String message2 = "";
 		String message3 = "";
 		String message5 = "";
@@ -238,6 +238,6 @@ public class AccountController {
 		
 		userRepository.save(editUser);
 
-		return "redirect://";
+		return "redirect:/";
 	}
 }
