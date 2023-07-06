@@ -253,6 +253,7 @@ Insert into recommendation(genre, type, sort, name, carbohydrates, protein, lipi
 Insert into recommendation(genre, type, sort, name, carbohydrates, protein, lipid, vitamin, mineral,pic) VALUES(02, 12, 24, '豆腐の味噌汁', 50, 10, 5, 500, 700, 'https://japaclip.com/files/rice-bowl.png');
 Insert into recommendation(genre, type, sort, name, carbohydrates, protein, lipid, vitamin, mineral,pic) VALUES(02, 12, 24, 'ごはん', 50, 10, 5, 500, 700, 'https://japaclip.com/files/rice-bowl.png');
 
+
 Insert into recommendation(genre, type, sort, name, carbohydrates, protein, lipid, vitamin, mineral,pic) VALUES(02, 12, 25, '', 50, 10, 5, 500, 700, 'https://japaclip.com/files/rice-bowl.png');
 
 Insert into recommendation(genre, type, sort, name, carbohydrates, protein, lipid, vitamin, mineral,pic) VALUES(02, 12, 26, '茄子の味噌炒め', 50, 10, 5, 500, 700, 'https://thumb.ac-illust.com/9f/9fcf07dff2bee0d2acb9be6f7c537b46_t.jpeg');
