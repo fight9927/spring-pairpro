@@ -33,7 +33,12 @@
 			<th>ミネラル(mg)</th>
 		</tr>
 		<tr th:each="food:${histories}">
-			<td>[[${food.name}]]</td>
+			<td>
+				[[${food.name}]]
+				<form th:action="|delete/${food.id}|" method="post">
+				   <input type="submit" value="削除">	
+				</form>
+			</td>
 			<td>[[${food.carbohydrates}]]</td>
 			<td>[[${food.protein}]]</td>
 			<td>[[${food.lipid}]]</td>

@@ -9,10 +9,9 @@
 	
 	<header th:replace="header"></header>
 	
-	<th:block>
-		<ul th:each="recommend:${recommends}">
-			<li>[[${recommend.name}]]</li>
-		</ul>
+	<th:block th:each="recommend:${recommends}">
+			[[${recommend.name}]]
+			<img th:src="${recommend.pic}" width="200px" height="160px" alt="イラスト">
 	</th:block>
 	
 	<footer th:replace="footer"></footer>

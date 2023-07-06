@@ -10,7 +10,7 @@ import java.util.Optional;
 
 import org.jfree.chart.ChartColor;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.StandardChartTheme;
 import org.jfree.chart.axis.NumberAxis;
@@ -352,7 +352,7 @@ public class MainController {
 	        try {
 	            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(); // 画像の出力先
 	            //ChartUtils.writeChartAsPNG(byteArrayOutputStream, chart, 600, 400); // チャートをPNG画像として出力
-	            ChartUtilities.writeChartAsPNG(byteArrayOutputStream, chart, 700, 500); // チャートをPNG画像として出力
+	            ChartUtils.writeChartAsPNG(byteArrayOutputStream, chart, 700, 500); // チャートをPNG画像として出力
 	            String base64string = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray()); // 画像をBase64でエンコード
 	            String dataUri = "data:image/png;base64," + base64string; // data URIの文字列を作成
 	            modelMap.addAttribute("dataUri", dataUri);
