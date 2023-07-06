@@ -26,7 +26,11 @@
 			<td><a th:href="|/choice/regist?foodId=${food.id}|" th:text="${food.name}" style="padding-left: 10px;"　class="foodmenu2"></a></td>
 		</tr>
 		</table>
-
+<th:block th:if="${pagination} > 1">
+	<span th:each="i : ${#numbers.sequence(0, pagination - 1)}">
+		<a th:href="|/choice?page=${i}&categoryId=${categoryId}|">[[${i + 1}]]</a>
+	</span>	
+</th:block>
 	<form action="/main" method="get">
 	   <button class="modoru1">戻る</button>
 	 </form>
