@@ -13,52 +13,49 @@
 	
 	<form action="/recommend" method="post">
 		
-	<table border="1" class="conndatechoice" >			
-	<tr>
-		<th>ジャンル</th>
-		<th>味付け</th>
-		<th>献立の種類</th>
-	</tr>
-	
-	<tr>
-		<td>
-		<select name="genre" class="aaaa">
-			<option value="01">こだわらない</option>
-			<option value="02">和食</option>
-			<option value="03">洋食</option>
-			<option value="04">中華</option>
-		</select>
-		</td>
-		
-		<td>
-		<select name="type" class="aaaa">
-			<option value="11">こだわらない</option>
-			<option value="12">あっさり</option>
-			<option value="13">がっつり</option>
-		</select>
-		</td>
-		
-		<td>
-		<select name="sort" class="aaaa">
-			<option value="21">カロリー低めの献立</option>
-			<option value="22">一人暮らしの献立</option>
-			<option value="23">麺料理の献立</option>
-			<option value="24">夏バテの時の献立</option>
-			<option value="25">春が旬の献立</option>
-			<option value="26">夏が旬の献立</option>
-			<option value="27">秋が旬の献立</option>
-			<option value="28">冬が旬の献立</option>
-		</select>
-		</td>	
-	</tr>
-	</table>
-	
+	<div class="recommend-choice">
+	<div class="kondate">
+	ジャンル<br><img src="css/img/food_okosama_lunch.jpg" width="200px" height="160px">
+	<select name="genre" class="aaaa">
+		<option value="01">こだわらない</option>
+		<option value="02">和食</option>
+		<option value="03">洋食</option>
+		<option value="04">中華</option>
+	</select>
+	</div>
+	<br>
+		<div class="kondate">
+	味付け<br><img src="css/img/cooking12_ajitsuke.jpg" width="200px" height="160px">
+	<select name="type" class="aaaa">
+		<option value="11">こだわらない</option>
+		<option value="12">あっさり</option>
+		<option value="13">がっつり</option>
+	</select>
+	</div>
+	<br>
+	<div class="kondate">
+	献立の種類<br><img src="css/img/syokuji_couple_smile (2).png" width="200px" height="160px">
+	<br><select name="sort" class="aaaa">
+		<option value="21">カロリー低めの献立</option>
+		<option value="22">一人暮らしの献立</option>
+		<option value="23">麺料理の献立</option>
+		<option value="24">夏バテの時の献立</option>
+		<option value="25">春が旬の献立</option>
+		<option value="26">夏が旬の献立</option>
+		<option value="27">秋が旬の献立</option>
+		<option value="28">冬が旬の献立</option>
+	</select>
+	</div>
+	</div>
+	<br>
+	<div class="menumodoru">
 	<input type="submit" value="献立検索" class="recommend">
 	</form>
 	<form action="/main" method="get">
-	    <button class="modoru">戻る</button>
+	    <button class="modoru2">戻る</button>
     </form>
-	
+	 </div>
+	 
 	<footer th:replace="footer"></footer>
 </body>
 </html>

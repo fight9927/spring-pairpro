@@ -32,7 +32,6 @@ footer{
 	color: #F2F3F4;
 	background-color: #1F1E26;
 	height: 170px;
-	position: relative;
 	bottom: 0;
 	}
 .sns a{
@@ -50,6 +49,7 @@ header span{
 	font-size: 25px;
 }
 header h1 {
+	margin-top: 0px;
 	text-align: left;
 	padding: 0px;
   	position: relative;
@@ -149,10 +149,12 @@ button:hover {
 	margin-bottom: 20px;
 }
 .eiyou1{
+	font-size:100%;
 	width: 780px;
 	margin-right: 0px; 
 }
 .eiyou2{
+	font-size: 20px;
 	width: 780px;
 	margin-left: 40px;
 	margin-top: 10px;
@@ -183,17 +185,25 @@ margin-top: 40px;
 /*コメント表示*/
 .message {
 	margin-left: 50px;
-	margin-top: 20px;
 	margin-right: 50px;
-    position: relative;
-    text-align: center;
-  	  padding: 30px;
-    font-size: 25px;
-    border: solid 5px lawngreen;
+    text-align: left;
+    padding: 10px;
+    padding-bottom: 100px;
+    font-size: 20px;
+    border: solid 3px #03C03C;
+    background: #CCFF66;
     border-radius: 10px;
-    width: 750px;
-    height: 100px;
-  
+    width: 800px;
+    height: 50px;
+    position: relative;
+    padding-top: 40px;
+    padding-left: 20px;
+}
+
+.mainpic{
+	margin-top: 20px;
+	margin-left: 85%;
+	position: absolute;
 }
   /* メニューバー*/
 .menu-btn {
@@ -353,26 +363,42 @@ margin-top: 40px;
 /* おすすめ検索*/
 .recommend-choice {
 	font-size:35px ;
+	display: inline-flex;
+
+	width:90%;
+
 }
 .kondate{
+	font-size: 40px;
 	 border: solid 5px #333;
-	background-color: transparent;
-	padding-top: 100px;
-	padding-bottom: 50px;
-	 height: 300px;
-	width: 400px;
-	 margin-top: 30px;
-	 margin-bottom: 30px;
-	 margin: 50px;
-
-	display:inline-block;
+	padding-top: 30px;
+	 height: 350px;
+	width: 350px;
+	margin:  auto;
+	background-color: #CCFF66;
+	color: navy;
+	font-weight: bold;
+	border-radius: 5%;
 }
 .recommend{
 	font-size: 25px;
-	margin-top: 40px;
-	margin-bottom: 20px;
+	margin:auto;
+	margin-left: 600px;
+	background-color: #A2D43D;
+	color: #ffffff;
+	border: none;
+	width:130px;
+	height: 50px;
+	cursor: pointer;
+	border-radius: 50px;
 }
+.recommend:hover {
+	background-color: #03C03C;
+}
+
 .aaaa{
+	margin-top: 30px;
+	padding: 2px;
 	font-size: 20px;
 }
 .text3{
@@ -443,7 +469,6 @@ margin-top: 40px;
 }
 .modoru{
 	margin:auto;
-		position: relative;
 }
 .menumodoru{
 	padding-top: 30px;
@@ -456,4 +481,11 @@ margin-top: 40px;
 .modoru1{
 	margin-top: 30px;
 	margin-right: 85%;
+}
+.modoru2{
+	margin-top: 30px;
+	margin-right: 85%;
+}
+a{
+	text-decoration: none;
 }

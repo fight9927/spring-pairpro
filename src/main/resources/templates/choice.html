@@ -23,7 +23,7 @@
 		</tr>
 		
 		<tr th:each="food:${foods}">
-			<td><a th:href="|/choice/regist?foodId=${food.id}|" th:text="${food.name}" style="padding-left: 10px;"　class="foodmenu2"></a></td>
+			<td><a th:href="|/choice/regist?foodId=${food.id}|" th:text="${food.name}" style="padding-left: 10px;"></a></td>
 		</tr>
 		</table>
 <th:block th:if="${pagination} > 1">
