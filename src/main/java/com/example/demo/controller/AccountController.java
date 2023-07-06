@@ -238,6 +238,6 @@ public class AccountController {
 		
 		userRepository.save(editUser);
 
-		return "redirect:/main";
+		return "redirect://";
 	}
 }

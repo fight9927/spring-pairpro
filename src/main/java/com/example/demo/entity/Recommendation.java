@@ -24,5 +24,5 @@ public class Recommendation {
 	private Integer lipid;
 	private Integer vitamin;
 	private Integer mineral;
-	
+	private String pic;
 }

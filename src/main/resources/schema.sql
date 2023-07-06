@@ -82,5 +82,6 @@ carbohydrates INTEGER,
 protein INTEGER,
 lipid INTEGER,
 vitamin INTEGER,
-mineral INTEGER
+mineral INTEGER,
+pic TEXT
 );
